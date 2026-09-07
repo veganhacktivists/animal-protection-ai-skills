@@ -1,0 +1,17 @@
+name: Attach skill zips to release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: tools/package_skills.sh
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip

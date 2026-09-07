@@ -1,0 +1,41 @@
+{
+  "name": "animal-protection-skills",
+  "owner": {
+    "name": "Vegan Hacktivists AI Services",
+    "email": "hello@veganhacktivists.org"
+  },
+  "metadata": {
+    "description": "Human-reviewed AI agent skills for the animal protection movement",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "catch-up",
+      "description": "Re-enter a long-running conversation in fifteen seconds: what you asked for, where it got to, what you need to decide next",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/catch-up"]
+    },
+    {
+      "name": "graph-advisor",
+      "description": "Blunt, specific critique of a chart or graph against data visualisation best practice, without redrawing it",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/graph-advisor"]
+    },
+    {
+      "name": "de-ai-writing",
+      "description": "Edit text to remove the patterns that make it read as AI-written, with the smallest possible changes",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/de-ai-writing"]
+    },
+    {
+      "name": "all-skills",
+      "description": "Every skill in the Animal Protection Skills repo in one install",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/catch-up", "./skills/graph-advisor", "./skills/de-ai-writing"]
+    }
+  ]
+}
