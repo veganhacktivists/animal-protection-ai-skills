@@ -4,7 +4,7 @@ description: "Edits text to remove AI writing tells with minimal changes, keepin
 license: MIT
 metadata:
   version: "1.0.0"
-  author: Richie Manandhar-Richardson
+  author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
   last-verified: "2026-09-07"
   verified-on: "Claude Code, Claude Cowork"

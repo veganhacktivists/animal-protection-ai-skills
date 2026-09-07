@@ -4,7 +4,7 @@ description: "Catch the user up on a long-running conversation they have not loo
 license: MIT
 metadata:
   version: "1.0.0"
-  author: Richie Manandhar-Richardson
+  author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
   last-verified: "2026-09-07"
   verified-on: "Claude Code, Claude Cowork"
