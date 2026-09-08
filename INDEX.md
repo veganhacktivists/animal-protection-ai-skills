@@ -6,7 +6,25 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-3 skills.
+5 skills.
+
+## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
+
+Scores an organization's AI adoption against seven fixed competencies (model access and plan tier, memory and custom instructions, projects and knowledge grounding, agent skills, automations, meeting capture, and coding agent use), each rated 0 to 3 with evidence, plus a one-line verdict naming the binding constraint. Use when someone asks "how mature is our AI use", "assess our AI readiness", "score us on AI adoption", "audit our AI setup", "where are we weak on AI", or wants a structured baseline before planning training or a rollout. Needs real evidence about the organization, not general AI knowledge, so gather that first rather than guessing.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-09-08 on Claude Code, Claude Cowork
+- **Requirements:** None. Works with the agent alone. It needs real evidence about the organization, gathered one of two ways:
+
+## [assess-relevance](skills/assess-relevance/SKILL.md)
+
+Reads a report, blog post, paper, policy brief, announcement, web page, or file and gives a clear verdict on whether it is relevant to the user's day-to-day work in animal advocacy — Highly relevant, Possibly relevant, or Not relevant — with a plain-language explanation of why. Use this whenever the user shares a URL or file and asks anything like "is this relevant to me?", "should I read this?", "is this worth my time?", "does this matter for my work?", "triage this report", "assess relevance", or "/assess-relevance" — even if they just paste a link and say "worth reading?". Also use it when the user shares several links or files and wants to know which ones to prioritise.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-09-08 on Claude Code, Claude Cowork
+- **Requirements:** None. Works with the agent alone. Gives a sharper answer when the agent has some saved context about the user's work (a memory feature, a project's custom instructions, or a `CLAUDE.md`/`AGENTS.md` file) — without that, it falls back to a best-effort verdict for a typical animal protection worker and says so.
 
 ## [catch-up](skills/catch-up/SKILL.md)
 
@@ -34,3 +52,15 @@ Critiques data visualisations and suggests improvements to communicate their goa
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.
+
+## Setup skills
+
+These are not installable skills. Each is a single file written for an AI agent to read and act on directly: it tells the agent how to interview its user and build them a bespoke, personal version, wired to their own accounts and tools. Point your agent at one with: "Read `<path>` and set this up for me."
+
+### [Skill setup — Missed message task triage](setup-skills/skill-setup-missed-message-triage.md)
+
+Interviews the user and builds them a personalised, read-only agent that periodically sweeps their messaging apps for requests that never became tasks, then proposes those as draft tasks for approval. There is no installable skill to copy: it only works wired to the specific channels, chats, and task manager the user actually has. Use when someone wants to stop losing requests that arrive as chat messages rather than tasks.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-09-08 on Claude Code, Claude Cowork

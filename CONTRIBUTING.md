@@ -22,6 +22,22 @@ skills/
 
 The folder name must match the `name` field in `SKILL.md` exactly.
 
+## Setup skills: a different shape
+
+Some capabilities only work wired to one person's own accounts, channels, and tools. Sharing a copy of someone else's version produces noise, or copies their setup assumptions along with it. For those, submit a **setup skill** instead: a single markdown file written for an AI agent, telling it how to interview its own user and build them a bespoke version. The reusable part is the process and the judgement calls, not a copy-pasteable file.
+
+```
+setup-skills/
+  skill-setup-your-topic.md
+```
+
+- Name it `skill-setup-<topic>.md`. No `SKILL.md`, no folder: it is one flat file.
+- Frontmatter uses `title`, `description`, `license`, and the same `metadata` block as a normal skill (`version`, `author`, `author-org`, `last-verified`, `verified-on`). No `name` or `compatibility` field.
+- The body should tell the reading agent, explicitly, not to run the steps itself but to build a personalised version for its user. Say what is being built and why it is not a shared skill, what the agent should discover before asking anything, the questions to ask, the core logic to build in, and what is a safety constraint rather than a preference. Keep specific tools out of the logic itself, describing "their task system" rather than naming one product.
+- It never gets installed or zipped, and does not appear in `.claude-plugin/marketplace.json`. It is read on request, not auto-triggered.
+
+The same review checklist below applies, and `tools/validate_skills.py` checks these too.
+
 ## SKILL.md frontmatter
 
 Copy this and fill it in. Every field shown is required in this repo except `compatibility`.

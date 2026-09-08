@@ -31,11 +31,31 @@
       "skills": ["./skills/de-ai-writing"]
     },
     {
-      "name": "all-skills",
-      "description": "Every skill in the Animal Protection Skills repo in one install",
+      "name": "assess-relevance",
+      "description": "Verdict on whether a report, paper, or policy brief actually matters to the reader's day-to-day work",
       "source": "./",
       "strict": false,
-      "skills": ["./skills/catch-up", "./skills/graph-advisor", "./skills/de-ai-writing"]
+      "skills": ["./skills/assess-relevance"]
+    },
+    {
+      "name": "ai-readiness-self-assessment",
+      "description": "Score an organization's AI adoption against seven fixed competencies, with evidence and a one-line verdict",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/ai-readiness-self-assessment"]
+    },
+    {
+      "name": "all-skills",
+      "description": "Every installable skill in the Animal Protection Skills repo in one install",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/catch-up",
+        "./skills/graph-advisor",
+        "./skills/de-ai-writing",
+        "./skills/assess-relevance",
+        "./skills/ai-readiness-self-assessment"
+      ]
     }
   ]
 }

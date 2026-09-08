@@ -2,6 +2,32 @@
   "repo": "https://github.com/veganhacktivists/animal-protection-ai-skills",
   "skills": [
     {
+      "name": "ai-readiness-self-assessment",
+      "description": "Scores an organization's AI adoption against seven fixed competencies (model access and plan tier, memory and custom instructions, projects and knowledge grounding, agent skills, automations, meeting capture, and coding agent use), each rated 0 to 3 with evidence, plus a one-line verdict naming the binding constraint. Use when someone asks \"how mature is our AI use\", \"assess our AI readiness\", \"score us on AI adoption\", \"audit our AI setup\", \"where are we weak on AI\", or wants a structured baseline before planning training or a rollout. Needs real evidence about the organization, not general AI knowledge, so gather that first rather than guessing.",
+      "version": "1.0.0",
+      "author": "Richie (Thomas Manandhar-Richardson)",
+      "author_org": "Vegan Hacktivists",
+      "last_verified": "2026-09-08",
+      "verified_on": "Claude Code, Claude Cowork",
+      "compatibility": "",
+      "requirements": "None. Works with the agent alone. It needs real evidence about the organization, gathered one of two ways:",
+      "path": "skills/ai-readiness-self-assessment",
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-readiness-self-assessment"
+    },
+    {
+      "name": "assess-relevance",
+      "description": "Reads a report, blog post, paper, policy brief, announcement, web page, or file and gives a clear verdict on whether it is relevant to the user's day-to-day work in animal advocacy — Highly relevant, Possibly relevant, or Not relevant — with a plain-language explanation of why. Use this whenever the user shares a URL or file and asks anything like \"is this relevant to me?\", \"should I read this?\", \"is this worth my time?\", \"does this matter for my work?\", \"triage this report\", \"assess relevance\", or \"/assess-relevance\" — even if they just paste a link and say \"worth reading?\". Also use it when the user shares several links or files and wants to know which ones to prioritise.",
+      "version": "1.0.0",
+      "author": "Richie (Thomas Manandhar-Richardson)",
+      "author_org": "Vegan Hacktivists",
+      "last_verified": "2026-09-08",
+      "verified_on": "Claude Code, Claude Cowork",
+      "compatibility": "",
+      "requirements": "None. Works with the agent alone. Gives a sharper answer when the agent has some saved context about the user's work (a memory feature, a project's custom instructions, or a `CLAUDE.md`/`AGENTS.md` file) — without that, it falls back to a best-effort verdict for a typical animal protection worker and says so.",
+      "path": "skills/assess-relevance",
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/assess-relevance"
+    },
+    {
       "name": "catch-up",
       "description": "Catch the user up on a long-running conversation they have not looked at in days or months. Produces exactly three short sections: what they originally asked for, a high-level summary of where things got to, and what the next decision is for them (with a short list of recommended options), in no more than twelve sentences total. Use whenever the user says 'catch me up', '/catch-up', 'catch up', 'where were we', 'where did we get to', 'what were we doing here', 'remind me what this is', 'what's the state of this', 'recap this', 'summarise this thread/conversation', or reopens an old session and asks what it was about. Also use when they name another conversation to be caught up on ('catch me up on the grant application one'). Do NOT use for catching up on messages, email, or the day ahead.",
       "version": "1.0.0",
@@ -39,6 +65,19 @@
       "requirements": "None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.",
       "path": "skills/graph-advisor",
       "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/graph-advisor"
+    }
+  ],
+  "setup_skills": [
+    {
+      "title": "Skill setup — Missed message task triage",
+      "description": "Interviews the user and builds them a personalised, read-only agent that periodically sweeps their messaging apps for requests that never became tasks, then proposes those as draft tasks for approval. There is no installable skill to copy: it only works wired to the specific channels, chats, and task manager the user actually has. Use when someone wants to stop losing requests that arrive as chat messages rather than tasks.",
+      "version": "1.0.0",
+      "author": "Richie (Thomas Manandhar-Richardson)",
+      "author_org": "Vegan Hacktivists",
+      "last_verified": "2026-09-08",
+      "verified_on": "Claude Code, Claude Cowork",
+      "path": "setup-skills/skill-setup-missed-message-triage.md",
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/blob/main/setup-skills/skill-setup-missed-message-triage.md"
     }
   ]
 }

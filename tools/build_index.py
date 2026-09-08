@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate INDEX.md and index.json from the frontmatter of every skills/<name>/SKILL.md.
+"""Regenerate INDEX.md and index.json from skills/*/SKILL.md and setup-skills/*.md frontmatter.
 
 Usage: python3 tools/build_index.py          rewrite both files
        python3 tools/build_index.py --check  exit 1 if the committed files are out of date
@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from validate_skills import SKILLS_DIR, ROOT, parse_skill  # noqa: E402
+from validate_skills import SKILLS_DIR, SETUP_SKILLS_DIR, ROOT, parse_frontmatter  # noqa: E402
 
 REPO_URL = "https://github.com/veganhacktivists/animal-protection-ai-skills"
 
@@ -31,10 +31,10 @@ def requirements_from_body(body: str) -> str:
     return "Not stated"
 
 
-def collect():
+def collect_skills():
     entries = []
     for folder in sorted(p for p in SKILLS_DIR.iterdir() if p.is_dir() and not p.name.startswith(".")):
-        front, body = parse_skill(folder / "SKILL.md")
+        front, body = parse_frontmatter(folder / "SKILL.md")
         meta = front.get("metadata", {}) or {}
         entries.append({
             "name": front["name"],
@@ -52,7 +52,28 @@ def collect():
     return entries
 
 
-def render_md(entries):
+def collect_setup_skills():
+    entries = []
+    if not SETUP_SKILLS_DIR.exists():
+        return entries
+    for path in sorted(SETUP_SKILLS_DIR.glob("*.md")):
+        front, _ = parse_frontmatter(path)
+        meta = front.get("metadata", {}) or {}
+        entries.append({
+            "title": front.get("title", path.stem),
+            "description": front.get("description", "").strip(),
+            "version": meta.get("version", ""),
+            "author": meta.get("author", ""),
+            "author_org": meta.get("author-org", ""),
+            "last_verified": meta.get("last-verified", ""),
+            "verified_on": meta.get("verified-on", ""),
+            "path": f"setup-skills/{path.name}",
+            "url": f"{REPO_URL}/blob/main/setup-skills/{path.name}",
+        })
+    return entries
+
+
+def render_md(skills, setup_skills):
     out = [
         "# Skills index",
         "",
@@ -60,12 +81,12 @@ def render_md(entries):
         "",
         "If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md` before recommending or installing a skill, and check the requirements against what the user has available. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.",
         "",
-        f"Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).",
+        "Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).",
         "",
-        f"{len(entries)} skills.",
+        f"{len(skills)} skills.",
         "",
     ]
-    for e in entries:
+    for e in skills:
         out += [
             f"## [{e['name']}]({e['path']}/SKILL.md)",
             "",
@@ -79,13 +100,37 @@ def render_md(entries):
         if e["compatibility"]:
             out.append(f"- **Compatibility:** {e['compatibility']}")
         out.append("")
+
+    if setup_skills:
+        out += [
+            "## Setup skills",
+            "",
+            "These are not installable skills. Each is a single file written for an AI agent to read and act on directly: it tells the agent how to interview its user and build them a bespoke, personal version, wired to their own accounts and tools. Point your agent at one with: \"Read `<path>` and set this up for me.\"",
+            "",
+        ]
+        for e in setup_skills:
+            out += [
+                f"### [{e['title']}]({e['path']})",
+                "",
+                e["description"],
+                "",
+                f"- **Author:** {e['author']} ({e['author_org']})",
+                f"- **Version:** {e['version']}",
+                f"- **Last verified:** {e['last_verified']} on {e['verified_on']}",
+                "",
+            ]
     return "\n".join(out)
 
 
 def main():
-    entries = collect()
-    md = render_md(entries)
-    js = json.dumps({"repo": REPO_URL, "skills": entries}, indent=2, ensure_ascii=False) + "\n"
+    skills = collect_skills()
+    setup_skills = collect_setup_skills()
+    md = render_md(skills, setup_skills)
+    js = json.dumps(
+        {"repo": REPO_URL, "skills": skills, "setup_skills": setup_skills},
+        indent=2,
+        ensure_ascii=False,
+    ) + "\n"
     md_path, js_path = ROOT / "INDEX.md", ROOT / "index.json"
     if "--check" in sys.argv:
         stale = []
@@ -100,7 +145,7 @@ def main():
         return 0
     md_path.write_text(md, encoding="utf-8")
     js_path.write_text(js, encoding="utf-8")
-    print(f"wrote INDEX.md and index.json ({len(entries)} skills)")
+    print(f"wrote INDEX.md and index.json ({len(skills)} skills, {len(setup_skills)} setup skills)")
     return 0
 
 
