@@ -32,8 +32,8 @@ Every skill lives at `skills/<skill-name>/`. Your agent can usually do this for 
 **Claude Code**
 
 ```
-/plugin marketplace add veganhacktivists/animal-protection-skills
-/plugin install de-ai-writing@animal-protection-skills
+/plugin marketplace add veganhacktivists/animal-protection-ai-skills
+/plugin install de-ai-writing@animal-protection-ai-skills
 ```
 
 Or copy the skill folder into `~/.claude/skills/` (all projects) or `.claude/skills/` (one project).
@@ -49,13 +49,13 @@ Copy the skill folder into `~/.agents/skills/` (all projects) or `.agents/skills
 **Gemini CLI**
 
 ```
-gemini skills install https://github.com/veganhacktivists/animal-protection-skills.git --path skills/de-ai-writing
+gemini skills install https://github.com/veganhacktivists/animal-protection-ai-skills.git --path skills/de-ai-writing
 ```
 
 **GitHub Copilot**
 
 ```
-gh skill install veganhacktivists/animal-protection-skills de-ai-writing
+gh skill install veganhacktivists/animal-protection-ai-skills de-ai-writing
 ```
 
 **Microsoft 365 Copilot**
@@ -67,7 +67,7 @@ Upload the skill's zip from the [Releases page](../../releases) under Customize,
 The community [`skills` installer](https://skills.sh) knows the install path for most agents:
 
 ```
-npx skills add veganhacktivists/animal-protection-skills
+npx skills add veganhacktivists/animal-protection-ai-skills
 ```
 
 ## Submitting a skill

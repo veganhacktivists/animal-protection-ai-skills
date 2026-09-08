@@ -1,5 +1,5 @@
 {
-  "repo": "https://github.com/veganhacktivists/animal-protection-skills",
+  "repo": "https://github.com/veganhacktivists/animal-protection-ai-skills",
   "skills": [
     {
       "name": "catch-up",
@@ -12,7 +12,7 @@
       "compatibility": "",
       "requirements": "None. Works with the agent alone. Catching up on a *different* conversation needs an agent that can search its own past sessions (Claude Code and Codex can; a fresh browser chat usually cannot). Without that, the user pastes the conversation in.",
       "path": "skills/catch-up",
-      "url": "https://github.com/veganhacktivists/animal-protection-skills/tree/main/skills/catch-up"
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/catch-up"
     },
     {
       "name": "de-ai-writing",
@@ -25,7 +25,7 @@
       "compatibility": "",
       "requirements": "None. Works with the agent alone.",
       "path": "skills/de-ai-writing",
-      "url": "https://github.com/veganhacktivists/animal-protection-skills/tree/main/skills/de-ai-writing"
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/de-ai-writing"
     },
     {
       "name": "graph-advisor",
@@ -38,7 +38,7 @@
       "compatibility": "",
       "requirements": "None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.",
       "path": "skills/graph-advisor",
-      "url": "https://github.com/veganhacktivists/animal-protection-skills/tree/main/skills/graph-advisor"
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/graph-advisor"
     }
   ]
 }

@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from validate_skills import SKILLS_DIR, ROOT, parse_skill  # noqa: E402
 
-REPO_URL = "https://github.com/veganhacktivists/animal-protection-skills"
+REPO_URL = "https://github.com/veganhacktivists/animal-protection-ai-skills"
 
 
 def requirements_from_body(body: str) -> str:
