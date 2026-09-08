@@ -44,7 +44,11 @@ Download the skill folder as a zip (each release on the [Releases page](../../re
 
 **OpenAI Codex**
 
-Copy the skill folder into `~/.agents/skills/` (all projects) or `.agents/skills/` in your repo. The ChatGPT web app cannot install custom skills, so this route is for the Codex desktop app, command line tool and IDE extension.
+Copy the skill folder into `~/.agents/skills/` (all projects) or `.agents/skills/` in your repo. This works in the Codex desktop app, command line tool and IDE extension.
+
+**ChatGPT Work**
+
+The plain ChatGPT web app cannot install a skill folder from this repository directly. ChatGPT Work can use skills through its own skill-creation flow, or by pasting a skill's `SKILL.md` content into a Project or Custom Instructions.
 
 **Gemini CLI**
 
