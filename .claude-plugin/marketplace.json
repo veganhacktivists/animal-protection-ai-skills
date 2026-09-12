@@ -24,11 +24,11 @@
       "skills": ["./skills/graph-advisor"]
     },
     {
-      "name": "de-ai-writing",
+      "name": "ai-smell",
       "description": "Edit text to remove the patterns that make it read as AI-written, with the smallest possible changes",
       "source": "./",
       "strict": false,
-      "skills": ["./skills/de-ai-writing"]
+      "skills": ["./skills/ai-smell"]
     },
     {
       "name": "assess-relevance",
@@ -52,7 +52,7 @@
       "skills": [
         "./skills/catch-up",
         "./skills/graph-advisor",
-        "./skills/de-ai-writing",
+        "./skills/ai-smell",
         "./skills/assess-relevance",
         "./skills/ai-readiness-self-assessment"
       ]

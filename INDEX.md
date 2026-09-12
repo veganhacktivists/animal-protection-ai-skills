@@ -17,6 +17,15 @@ Scores an organization's AI adoption against seven fixed competencies (model acc
 - **Last verified:** 2026-09-08 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. It needs real evidence about the organization, gathered one of two ways:
 
+## [ai-smell](skills/ai-smell/SKILL.md)
+
+Removes AI smells (AI writing tells) from text with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when someone pastes AI-generated or AI-assisted text and says "fix this", "check this for AI smells", "make this sound human", "de-AI this", "strip the AI tells", or "this reads like ChatGPT wrote it". Do NOT trigger for general editing or proofreading requests that don't mention AI voice.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 2.0.0
+- **Last verified:** 2026-09-12 on Claude Code, Claude Cowork
+- **Requirements:** None. Works with the agent alone.
+
 ## [assess-relevance](skills/assess-relevance/SKILL.md)
 
 Reads a report, blog post, paper, policy brief, announcement, web page, or file and gives a clear verdict on whether it is relevant to the user's day-to-day work in animal advocacy — Highly relevant, Possibly relevant, or Not relevant — with a plain-language explanation of why. Use this whenever the user shares a URL or file and asks anything like "is this relevant to me?", "should I read this?", "is this worth my time?", "does this matter for my work?", "triage this report", "assess relevance", or "/assess-relevance" — even if they just paste a link and say "worth reading?". Also use it when the user shares several links or files and wants to know which ones to prioritise.
@@ -34,15 +43,6 @@ Catch the user up on a long-running conversation they have not looked at in days
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. Catching up on a *different* conversation needs an agent that can search its own past sessions (Claude Code and Codex can; a fresh browser chat usually cannot). Without that, the user pastes the conversation in.
-
-## [de-ai-writing](skills/de-ai-writing/SKILL.md)
-
-Edits text to remove AI writing tells with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when the user pastes AI-generated or AI-assisted text and says "fix this", "make this sound human", "de-AI this", "strip the AI tells", or "this reads like ChatGPT wrote it". Do NOT trigger for general editing or proofreading requests that don't mention AI voice.
-
-- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
-- **Version:** 1.0.0
-- **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
-- **Requirements:** None. Works with the agent alone.
 
 ## [graph-advisor](skills/graph-advisor/SKILL.md)
 
