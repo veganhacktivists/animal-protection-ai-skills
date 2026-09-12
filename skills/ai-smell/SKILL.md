@@ -1,16 +1,16 @@
 ---
-name: de-ai-writing
-description: "Edits text to remove AI writing tells with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when the user pastes AI-generated or AI-assisted text and says \"fix this\", \"make this sound human\", \"de-AI this\", \"strip the AI tells\", or \"this reads like ChatGPT wrote it\". Do NOT trigger for general editing or proofreading requests that don't mention AI voice."
+name: ai-smell
+description: "Removes AI smells (AI writing tells) from text with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when someone pastes AI-generated or AI-assisted text and says \"fix this\", \"check this for AI smells\", \"make this sound human\", \"de-AI this\", \"strip the AI tells\", or \"this reads like ChatGPT wrote it\". Do NOT trigger for general editing or proofreading requests that don't mention AI voice."
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "2.0.0"
   author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
-  last-verified: "2026-09-07"
+  last-verified: "2026-09-12"
   verified-on: "Claude Code, Claude Cowork"
 ---
 
-# De-AI Writing
+# AI Smell
 
 You are editing text to strip out the patterns that make readers think "AI wrote this." Your goal is the same text, minus the tells: as close to the original wording as possible, but reading like a competent human wrote it. Not a human pretending to be quirky. Not a human trying too hard. Just normal, clear writing.
 
@@ -92,14 +92,58 @@ It comes in two forms, and both count:
 - **The -ing form:** "The system analyses the data, revealing key insights." "It ships in March, giving the team time to test."
 - **The -ed form:** "Eleven workflows, grouped under the weeks they extend." "The report went out on Friday, signed off by the whole team." The verb here is a past participle rather than an -ing word, so it is easy to miss, but it is the same shape doing the same job.
 
+- **The headless-relative form:** "Four capabilities we barely touched, and every workflow below leans on." There is no main verb at all. It is a noun phrase with two relative clauses hung off it, the second one stranding its preposition with nothing after it. AI uses these as headings, lead-ins and bolded standalone lines, where the missing verb reads as compression rather than as the error it is. Rewrite it as a sentence with a verb: "Four capabilities we barely touched. Every workflow below relies on them."
+
 Rules:
 
-- **Maximum one per 500 words, counting both forms together.** Zero is fine.
+- **Maximum one per 500 words, counting all three forms together.** Zero is fine.
 - Replace with: a new sentence ("The system analyses the data. This reveals..."), a conjunction ("The system analyses the data and reveals..."), a plain relative clause ("Eleven workflows that extend the weeks below"), or restructure entirely.
 
 ### "It's not X, it's Y" / "It's not just X, it's Y"
 
 This contrastive negation pattern is one of the most recognised AI structures. **Never use it.** Find another way to make the point. State the positive claim directly. If the contrast matters, set it up across two sentences.
+
+The version that slips through is the one where a real noun sits in the subject slot instead of "it", so the sentence does not open with the giveaway words:
+
+- "The gap isn't ability, it's exposure and time to learn the tools properly."
+- "The problem isn't the tooling, it's the habit."
+- "What holds them back isn't budget, it's permission."
+
+Same shape, same tell. Catch all of these forms: "The X isn't A, it's B", "X is not A, but B", "This isn't about A, it's about B", "Not A. B." Scan for the comma-plus-"it's" hinge and for any sentence that denies something before asserting the real claim.
+
+Fix it by deleting the denied half and keeping the claim: "The gap isn't ability, it's exposure and time to learn the tools properly" becomes "What they lack is exposure, and time to learn the tools properly." If the rejected option genuinely needs ruling out, give it its own sentence and say why it is wrong.
+
+### The corrective fragment ("Now, not later.")
+
+A short standalone fragment appended to an instruction or claim, which defines it by rejecting the obvious alternative:
+
+- "Open the Claude desktop app. Now, not later."
+- "Write it down. Today, not next quarter."
+- "We do it live. Together, not separately."
+- "Once, not every time."
+
+It is the contrastive negation pattern above, compressed into a fragment and used as a punchline. The rejected half is almost always a straw man nobody was proposing, so the fragment adds urgency without adding information. It reads as a coach barking at you.
+
+- **Never use it.** Cut the fragment entirely. "Open the Claude desktop app" is a complete instruction on its own.
+- If the timing genuinely matters, state the consequence instead: "Open the Claude desktop app now, because the next exercise runs inside it."
+- Catches: "now, not later", "today, not tomorrow", "X, not Y" as an appended fragment of any kind, and the bolded version, which is the most common form.
+
+### "the" where the honest word is "a"
+
+AI reaches for the definite article when the claim only supports an indefinite one. It turns one example into the only example:
+
+- "a movement-focused version is the gap worth filling" (there are many gaps; this is a gap worth filling)
+- "that is the question everyone is avoiding" (it is a question people avoid)
+- "this is the reason adoption stalls" (it is one reason among several)
+- "the thing that changes the work" (a thing that changes the work)
+
+Nothing in the surrounding text establishes uniqueness or a ranking, so "the" asserts one for free. The reader is told this is the single item that counts, on no evidence. It overclaims, and it is easy to miss because the sentence is otherwise fine.
+
+- **Swap "the" for "a" or "an" whenever the text has not actually ruled out the alternatives.** Usually that one-character change is the entire edit.
+- Test it: can you point at a sentence nearby that rules out every other candidate? If not, the article is wrong.
+- If the thing genuinely is the only one, earn it in words rather than smuggling it in through the article: "nobody else is writing this for the movement, so it is the obvious gap to fill."
+- The tell is the article, not any formatting. Bold or italics on the word is a separate matter and often just the author flagging the problem.
+- Same family as "X is the win" below: in both, a definite article stands in for a claim the writer has not made.
 
 ### Rule of three (tricolon)
 

@@ -15,6 +15,19 @@
       "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-readiness-self-assessment"
     },
     {
+      "name": "ai-smell",
+      "description": "Removes AI smells (AI writing tells) from text with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when someone pastes AI-generated or AI-assisted text and says \"fix this\", \"check this for AI smells\", \"make this sound human\", \"de-AI this\", \"strip the AI tells\", or \"this reads like ChatGPT wrote it\". Do NOT trigger for general editing or proofreading requests that don't mention AI voice.",
+      "version": "2.0.0",
+      "author": "Richie (Thomas Manandhar-Richardson)",
+      "author_org": "Vegan Hacktivists",
+      "last_verified": "2026-09-12",
+      "verified_on": "Claude Code, Claude Cowork",
+      "compatibility": "",
+      "requirements": "None. Works with the agent alone.",
+      "path": "skills/ai-smell",
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-smell"
+    },
+    {
       "name": "assess-relevance",
       "description": "Reads a report, blog post, paper, policy brief, announcement, web page, or file and gives a clear verdict on whether it is relevant to the user's day-to-day work in animal advocacy — Highly relevant, Possibly relevant, or Not relevant — with a plain-language explanation of why. Use this whenever the user shares a URL or file and asks anything like \"is this relevant to me?\", \"should I read this?\", \"is this worth my time?\", \"does this matter for my work?\", \"triage this report\", \"assess relevance\", or \"/assess-relevance\" — even if they just paste a link and say \"worth reading?\". Also use it when the user shares several links or files and wants to know which ones to prioritise.",
       "version": "1.0.0",
@@ -39,19 +52,6 @@
       "requirements": "None. Works with the agent alone. Catching up on a *different* conversation needs an agent that can search its own past sessions (Claude Code and Codex can; a fresh browser chat usually cannot). Without that, the user pastes the conversation in.",
       "path": "skills/catch-up",
       "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/catch-up"
-    },
-    {
-      "name": "de-ai-writing",
-      "description": "Edits text to remove AI writing tells with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when the user pastes AI-generated or AI-assisted text and says \"fix this\", \"make this sound human\", \"de-AI this\", \"strip the AI tells\", or \"this reads like ChatGPT wrote it\". Do NOT trigger for general editing or proofreading requests that don't mention AI voice.",
-      "version": "1.0.0",
-      "author": "Richie (Thomas Manandhar-Richardson)",
-      "author_org": "Vegan Hacktivists",
-      "last_verified": "2026-09-07",
-      "verified_on": "Claude Code, Claude Cowork",
-      "compatibility": "",
-      "requirements": "None. Works with the agent alone.",
-      "path": "skills/de-ai-writing",
-      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/de-ai-writing"
     },
     {
       "name": "graph-advisor",

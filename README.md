@@ -20,7 +20,7 @@ Paste the repo link into your agent and try things like:
 
 - "Read the skills index in this repo and tell me which skills would be useful for my job. I do fundraising for a farmed animal charity."
 - "Read the `graph-advisor` skill and tell me whether it would help me. What does it need set up first?"
-- "Install the `de-ai-writing` skill from this repo for me."
+- "Install the `ai-smell` skill from this repo for me."
 - "Install `catch-up`, but change it so the summary is aimed at my manager rather than at me."
 
 That last one is the point. A skill is plain text. Your agent can read it, discuss it with you, adapt it to your organisation and install the adapted copy. You are not stuck with our version.
@@ -35,7 +35,7 @@ Every skill lives at `skills/<skill-name>/`. Your agent can usually do this for 
 
 ```
 /plugin marketplace add veganhacktivists/animal-protection-ai-skills
-/plugin install de-ai-writing@animal-protection-ai-skills
+/plugin install ai-smell@animal-protection-ai-skills
 ```
 
 Or copy the skill folder into `~/.claude/skills/` (all projects) or `.claude/skills/` (one project).
@@ -55,13 +55,13 @@ The plain ChatGPT web app cannot install a skill folder from this repository dir
 **Gemini CLI**
 
 ```
-gemini skills install https://github.com/veganhacktivists/animal-protection-ai-skills.git --path skills/de-ai-writing
+gemini skills install https://github.com/veganhacktivists/animal-protection-ai-skills.git --path skills/ai-smell
 ```
 
 **GitHub Copilot**
 
 ```
-gh skill install veganhacktivists/animal-protection-ai-skills de-ai-writing
+gh skill install veganhacktivists/animal-protection-ai-skills ai-smell
 ```
 
 **Microsoft 365 Copilot**
