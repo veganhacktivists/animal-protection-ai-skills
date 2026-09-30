@@ -45,6 +45,13 @@
       "skills": ["./skills/ai-readiness-self-assessment"]
     },
     {
+      "name": "search-riaak",
+      "description": "Search RIAAK, a public knowledge base of animal advocacy research, and answer only from what it finds, with a link to every source",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/search-riaak"]
+    },
+    {
       "name": "all-skills",
       "description": "Every installable skill in the Animal Protection Skills repo in one install",
       "source": "./",
@@ -54,7 +61,8 @@
         "./skills/graph-advisor",
         "./skills/ai-smell",
         "./skills/assess-relevance",
-        "./skills/ai-readiness-self-assessment"
+        "./skills/ai-readiness-self-assessment",
+        "./skills/search-riaak"
       ]
     }
   ]
