@@ -22,8 +22,8 @@ Scores an organization's AI adoption against seven fixed competencies (model acc
 Removes AI smells (AI writing tells) from text with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when someone pastes AI-generated or AI-assisted text and says "fix this", "check this for AI smells", "make this sound human", "de-AI this", "strip the AI tells", or "this reads like ChatGPT wrote it". Do NOT trigger for general editing or proofreading requests that don't mention AI voice.
 
 - **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
-- **Version:** 2.0.0
-- **Last verified:** 2026-09-12 on Claude Code, Claude Cowork
+- **Version:** 2.1.0
+- **Last verified:** 2026-10-08 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone.
 
 ## [assess-relevance](skills/assess-relevance/SKILL.md)
