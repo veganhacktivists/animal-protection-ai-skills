@@ -17,10 +17,10 @@
     {
       "name": "ai-smell",
       "description": "Removes AI smells (AI writing tells) from text with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when someone pastes AI-generated or AI-assisted text and says \"fix this\", \"check this for AI smells\", \"make this sound human\", \"de-AI this\", \"strip the AI tells\", or \"this reads like ChatGPT wrote it\". Do NOT trigger for general editing or proofreading requests that don't mention AI voice.",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "author": "Richie (Thomas Manandhar-Richardson)",
       "author_org": "Vegan Hacktivists",
-      "last_verified": "2026-09-12",
+      "last_verified": "2026-10-08",
       "verified_on": "Claude Code, Claude Cowork",
       "compatibility": "",
       "requirements": "None. Works with the agent alone.",

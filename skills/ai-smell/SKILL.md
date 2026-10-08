@@ -3,10 +3,10 @@ name: ai-smell
 description: "Removes AI smells (AI writing tells) from text with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when someone pastes AI-generated or AI-assisted text and says \"fix this\", \"check this for AI smells\", \"make this sound human\", \"de-AI this\", \"strip the AI tells\", or \"this reads like ChatGPT wrote it\". Do NOT trigger for general editing or proofreading requests that don't mention AI voice."
 license: MIT
 metadata:
-  version: "2.0.0"
+  version: "2.1.0"
   author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
-  last-verified: "2026-09-12"
+  last-verified: "2026-10-08"
   verified-on: "Claude Code, Claude Cowork"
 ---
 
@@ -51,7 +51,7 @@ Never use these in your rewrite. They are the most widely recognised AI tells. I
 
 **Nouns:** tapestry, landscape (as metaphor), realm, journey (as metaphor), synergy, paradigm, testament, beacon, cornerstone, underpinning, bedrock, nexus, interplay, confluence, gamut, spectrum (when vague)
 
-**Phrases:** "It's important to note that", "In today's [adjective] world/age", "Let's dive in", "Here's the thing", "At its core", "When it comes to", "From X to Y" (as sweeping range), "a testament to", "serves as a reminder", "the ever-evolving landscape of", "rich tapestry of", "stands as a beacon of", "at the intersection of", "paving the way for", "the art and science of", "not just X, but Y", "a deep understanding of", "plays a crucial role", "it is worth noting", "worth naming", "this is where X comes in", "the beauty of X lies in", "X is more than just Y", "X matters" (as a standalone closer, e.g. "This matters.", "Why this matters:"), "the whole point" (any variant: "that's the whole point," "it's the whole point," "that is the whole point of X"), "X is the win", "X is the unlock", "X is the tell", "X is the moat", "X becomes the trap", "X is the real cost" (see "X is the win" in Layer 3)
+**Phrases:** "It's important to note that", "In today's [adjective] world/age", "Let's dive in", "Here's the thing", "At its core", "When it comes to", "From X to Y" (as sweeping range), "a testament to", "serves as a reminder", "the ever-evolving landscape of", "rich tapestry of", "stands as a beacon of", "at the intersection of", "paving the way for", "the art and science of", "not just X, but Y", "a deep understanding of", "plays a crucial role", "it is worth noting", "worth naming", "this is where X comes in", "the beauty of X lies in", "X is more than just Y", "X matters" (as a standalone closer, e.g. "This matters.", "Why this matters:"), "the whole point" (any variant: "that's the whole point," "it's the whole point," "that is the whole point of X"), "a nice detail", "a nice touch", "a fun fact", "an interesting detail", "a nice detail for this room" (see Announced asides below), "X is the win", "X is the unlock", "X is the tell", "X is the moat", "X becomes the trap", "X is the real cost" (see "X is the win" in Layer 3)
 
 ### What to use instead
 
@@ -92,6 +92,7 @@ It comes in two forms, and both count:
 - **The -ing form:** "The system analyses the data, revealing key insights." "It ships in March, giving the team time to test."
 - **The -ed form:** "Eleven workflows, grouped under the weeks they extend." "The report went out on Friday, signed off by the whole team." The verb here is a past participle rather than an -ing word, so it is easy to miss, but it is the same shape doing the same job.
 
+- **The heading form:** it turns up most in titles and slide headings, where it reads as a slogan. "A standard morning, answered in seconds." "Your survey, summarised in a minute." "Eleven calls, remembered for you." Same shape (a noun, a comma, a past participle and a speed or scale), and it is a tagline for a result nobody has shown yet. Rewrite it as a plain claim or a label: "A standard morning, answered" has the same flaw, so go to "Ask it about a standard morning" or just "Demo 1: a standard morning".
 - **The headless-relative form:** "Four capabilities we barely touched, and every workflow below leans on." There is no main verb at all. It is a noun phrase with two relative clauses hung off it, the second one stranding its preposition with nothing after it. AI uses these as headings, lead-ins and bolded standalone lines, where the missing verb reads as compression rather than as the error it is. Rewrite it as a sentence with a verb: "Four capabilities we barely touched. Every workflow below relies on them."
 
 Rules:
@@ -144,6 +145,23 @@ Nothing in the surrounding text establishes uniqueness or a ranking, so "the" as
 - If the thing genuinely is the only one, earn it in words rather than smuggling it in through the article: "nobody else is writing this for the movement, so it is the obvious gap to fill."
 - The tell is the article, not any formatting. Bold or italics on the word is a separate matter and often just the author flagging the problem.
 - Same family as "X is the win" below: in both, a definite article stands in for a claim the writer has not made.
+
+### Superlatives with no reference point ("the biggest opportunity")
+
+AI calls something the biggest, the worst, or the most important without saying what it is being compared against:
+
+- "This is the biggest opportunity for the movement right now."
+- "Poor onboarding is the worst mistake small teams make."
+- "The most important thing is to start."
+- "An unprecedented shift in how advocates work."
+
+The biggest opportunity in what? In life? In business? Of all the options this document covered? Nothing says, so the superlative ranks the thing against everything and nothing. It is cringe and attention-seeking: it reaches for weight the sentence has not earned.
+
+- **Either add the missing reference point or drop the superlative.** "The biggest opportunity" becomes "the biggest funding source for UK sanctuaries" when the text has that comparison to hand, or just "an opportunity" (or "a good opportunity") when it does not.
+- Only add a reference point the surrounding text already supplies. Do not invent a ranking or a statistic to justify the word; that breaks the no-new-information rule below. If nothing nearby backs it up, cut it.
+- Catches: the biggest, the worst, the best, the most important, the greatest, the single most, the number one, the key (as in "the key challenge"), unprecedented, unparalleled, unmatched, like never before, second to none.
+- A superlative is fine when the comparison is stated or obvious from context: "the largest of the three grants", "our most-read post this year".
+- Close relative of the "the" rule above: both claim a ranking the text has not established.
 
 ### Rule of three (tricolon)
 
@@ -215,13 +233,54 @@ AI joins a flat setup clause to a second clause that reverses, escalates, or und
 - "Foundations registration is open, and the public page doesn't say so."
 - "Three vendor links had rotted, and one rotted dangerously."
 - "The 2025 materials are public, and I'd missed them."
+- "Three things, and one is crucial."
+- "It's a good question, and there's reason to worry."
+- "Your worries are fair, and we'll get to every one."
+
+The shape is **a short statement, a comma, "and", a second statement.** It is at its worst when the whole thing is short (a heading, a slide title, a one-line reply), because there is nothing around it to absorb the beat. In the last three examples above, the first half is a pleasantry or a count and the second half is the point, so the "and" is only a pause before the point.
 
 The tell is that the two halves are not two facts of equal weight being joined. The first exists only to make the second land. Swapping the comma for an em dash does not fix it: the shape is the tell, not the punctuation.
 
-- **Maximum one per 800 words.** Zero is fine. Two in the same section is a strong tell on its own, and so is one used to close a paragraph.
+- **Headings, titles and slide text: none.** Rewrite every one. Elsewhere, maximum one per 800 words, and zero is fine. Two in the same section is a strong tell on its own, and so is one used to close a paragraph.
 - Watch for the escalating-echo variant, where the second clause repeats a word from the first and adds a twist ("had rotted... rotted dangerously"), and the self-implicating variant, where the reveal is the writer's own failure ("and I'd missed them").
-- Fix by cutting the setup and keeping the fact that carries the weight ("The public page doesn't say Foundations registration is open"), by splitting into two sentences, or by using "but" where the contrast is real rather than staged.
+- Fix by cutting the setup and keeping the fact that carries the weight ("There's reason to worry"; "The public page doesn't say Foundations registration is open"), by splitting into two sentences, or by using "but" where the contrast is real rather than staged. For a count, say the count and what it holds ("Three things, one of them crucial") only if the sentence needs it, or name the things.
 - "I think X is true, and I want to be clear about why" is this pattern crossed with the manufactured-significance preface above. Cut the second clause and give the reason.
+
+### Announced asides ("A nice detail for this room:")
+
+AI labels a fact as nice, neat, interesting or fun before giving it, and adds who it is for: "A nice detail for this room: Faunalytics built it on Claude." "A fun fact:", "An interesting wrinkle:", "Worth knowing:". The label does the selling the fact should do, and "for this room" tailors a sentence to its audience in a way a person never writes into their own notes. It is a sibling of "worth naming" and "there's a pattern worth naming".
+
+- **Cut the label and state the fact.** "Faunalytics built it on Claude." If the fact needs a reason to be there, give the reason: "Faunalytics built it on Claude, so it is a tool we already trust the foundations of."
+- Catches "for this room", "for this audience", "for your team" when they only point at who is listening.
+
+### "Actually" and its relatives
+
+"Actually" is used to sound candid or to hint that the obvious reading is wrong. In AI text it shows up several times a page and almost never corrects anything: "what the electricity and the water actually add up to", "what your participants actually told you", "what one person typing a question actually costs", "what it actually does".
+
+- **Cut it.** In nearly every case the sentence says the same thing without it: "what the electricity and the water add up to".
+- Keep it only when it corrects something the text has just said or the reader plausibly believes ("The calculator isn't free. It actually costs $8."), and then only once. Maximum one per 500 words.
+- Same family: "really" ("really three questions"), "truly", "genuinely", "simply", "just" used as an intensifier. Cut them the same way, unless the word changes the meaning.
+- Check headings and slide text hardest. "Actually" in a heading is almost always filler.
+
+### The handoff pair ("The research was his. AI helped build the tool.")
+
+Two short sentences side by side that split the credit between a human and a machine, or between two parties: "The research was his. AI helped build the tool." "It found the patterns. You decide what to do about them." "The AI drafts. You decide." "The data is theirs. The analysis is ours."
+
+The pair is the contrastive negation pattern with the "not" taken out. The second sentence quietly rules out an alternative nobody proposed (that the machine did it all), and the matched length and rhythm do the persuading. It reads as a slogan, and it is aphoristic where it should be specific.
+
+- **Say the one specific thing.** "The calculator rests on his research. Claude Code helped build it." can become "He built it with help from Claude Code", which is already a complete claim.
+- If the division of responsibility really is the point, say it once, in a sentence with a verb and a reason: "You decide what to do about the patterns, because you know which ones this team can act on."
+- One handoff pair in a document is a position. Two are a tic. They are especially common as a slide's pair of consecutive statements, so check neighbouring slides.
+- Catches: "X does A. You do B.", "The X was his. AI did Y.", "AI handles A, you handle B", "AI does the A, humans do the B".
+
+### Parallel count pairs ("one document, one question")
+
+A heading or fragment built from a number and a noun, repeated: "One document, one question." "One tool, one task." "One person, one prompt." "Three steps, one goal." It borrows the cadence of a slogan. The repetition looks like precision, but the second "one" usually says nothing the first did not.
+
+- **Say what the pair stands for, in a sentence.** "Open one document and ask it a question" says the same thing and tells the reader what to do.
+- Allowed when both counts are exact and informative, such as "two boxes, five minutes" on a timing slide, where the numbers are the content.
+- Same family as the rule of three, and as the "Four things in the next hour" pattern when the number is the only content.
+- Check headings and slide titles first. The pattern collects there.
 
 ### Correlative conjunctions overuse
 
@@ -296,7 +355,6 @@ Return the edited text only. No preamble ("Here's the edited version:"), no post
 If the text is very long (1000+ words), preserve any structural elements (headers, bullet points, numbered lists) that are genuinely useful, while still applying all the rules above.
 
 If the user provides specific instructions alongside the text (e.g. "make it shorter," "keep the headers," "this is for LinkedIn"), follow those instructions as well. They take priority over general rules where there is a conflict.
-
 ## Requirements
 
 None. Works with the agent alone.
