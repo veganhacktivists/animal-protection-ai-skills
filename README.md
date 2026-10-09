@@ -10,7 +10,7 @@ A skill is a folder containing a `SKILL.md` file. That file is a set of instruct
 
 The format is the open [Agent Skills standard](https://agentskills.io/), so the same folder works in Claude (Code, Cowork and claude.ai), OpenAI Codex, Gemini CLI, GitHub Copilot and Microsoft 365 Copilot. See [Installing a skill](#installing-a-skill) for the details per agent.
 
-A few entries under [`setup-skills/`](setup-skills/) are a different shape: not something you install, but a single file written for your agent to read and act on directly. It interviews you and builds a personal version wired to your own accounts, because the value only comes from being wired to your specific channels and tools. Point your agent at one with: "Read `setup-skills/<file>` and set this up for me." The [skills index](INDEX.md) lists these separately from the installable skills.
+Each skill folder also has a `README.md`, the skill's setup guide. It says what the skill needs, how to install it and how to check it works, and has a section for your agent. A few skills only work once they know about you, such as which chats to read. For those, the setup guide tells your agent what to find out and what to ask you.
 
 ## How to use this repo
 
@@ -31,9 +31,7 @@ If you are an AI agent reading this repo for a user, start with [`AGENTS.md`](AG
 
 ## Installing a skill
 
-Every skill lives at `skills/<skill-name>/`. If the folder has a `README.md`, that is the skill's setup guide: what it needs, how to install it and how to check it works.
-
-Your agent can usually install a skill for you if you ask. If you would rather do it yourself:
+Every skill lives at `skills/<skill-name>/`, with its setup guide in the folder's `README.md`. Your agent can usually install a skill for you if you ask. If you would rather do it yourself:
 
 **Claude Code**
 

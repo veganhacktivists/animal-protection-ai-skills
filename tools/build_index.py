@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate INDEX.md and index.json from skills/*/SKILL.md and setup-skills/*.md frontmatter.
+"""Regenerate INDEX.md and index.json from skills/*/SKILL.md frontmatter.
 
 Usage: python3 tools/build_index.py          rewrite both files
        python3 tools/build_index.py --check  exit 1 if the committed files are out of date
@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from validate_skills import SKILLS_DIR, SETUP_SKILLS_DIR, ROOT, parse_frontmatter  # noqa: E402
+from validate_skills import SKILLS_DIR, ROOT, parse_frontmatter  # noqa: E402
 
 REPO_URL = "https://github.com/veganhacktivists/animal-protection-ai-skills"
 
@@ -48,40 +48,20 @@ def collect_skills():
             "requirements": requirements_from_body(body),
             "path": f"skills/{front['name']}",
             "url": f"{REPO_URL}/tree/main/skills/{front['name']}",
+            "setup_guide": f"skills/{front['name']}/README.md",
         })
     return entries
 
 
-def collect_setup_skills():
-    entries = []
-    if not SETUP_SKILLS_DIR.exists():
-        return entries
-    for path in sorted(SETUP_SKILLS_DIR.glob("*.md")):
-        front, _ = parse_frontmatter(path)
-        meta = front.get("metadata", {}) or {}
-        entries.append({
-            "title": front.get("title", path.stem),
-            "description": front.get("description", "").strip(),
-            "version": meta.get("version", ""),
-            "author": meta.get("author", ""),
-            "author_org": meta.get("author-org", ""),
-            "last_verified": meta.get("last-verified", ""),
-            "verified_on": meta.get("verified-on", ""),
-            "path": f"setup-skills/{path.name}",
-            "url": f"{REPO_URL}/blob/main/setup-skills/{path.name}",
-        })
-    return entries
-
-
-def render_md(skills, setup_skills):
+def render_md(skills):
     out = [
         "# Skills index",
         "",
         "Every skill in this repo, generated from each skill's `SKILL.md` frontmatter by `tools/build_index.py`. Do not edit by hand.",
         "",
-        "If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md` before recommending or installing a skill, and check the requirements against what the user has available. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.",
+        "If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md` before recommending or installing a skill, and check the requirements against what the user has available. To install one, follow its setup guide. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.",
         "",
-        "Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).",
+        "Machine-readable version: [`index.json`](index.json). Install instructions: each skill's setup guide, linked below.",
         "",
         f"{len(skills)} skills.",
         "",
@@ -96,38 +76,20 @@ def render_md(skills, setup_skills):
             f"- **Version:** {e['version']}",
             f"- **Last verified:** {e['last_verified']} on {e['verified_on']}",
             f"- **Requirements:** {e['requirements']}",
+            f"- **Setup guide:** [{e['setup_guide']}]({e['setup_guide']})",
         ]
         if e["compatibility"]:
             out.append(f"- **Compatibility:** {e['compatibility']}")
         out.append("")
 
-    if setup_skills:
-        out += [
-            "## Setup skills",
-            "",
-            "These are not installable skills. Each is a single file written for an AI agent to read and act on directly: it tells the agent how to interview its user and build them a bespoke, personal version, wired to their own accounts and tools. Point your agent at one with: \"Read `<path>` and set this up for me.\"",
-            "",
-        ]
-        for e in setup_skills:
-            out += [
-                f"### [{e['title']}]({e['path']})",
-                "",
-                e["description"],
-                "",
-                f"- **Author:** {e['author']} ({e['author_org']})",
-                f"- **Version:** {e['version']}",
-                f"- **Last verified:** {e['last_verified']} on {e['verified_on']}",
-                "",
-            ]
     return "\n".join(out)
 
 
 def main():
     skills = collect_skills()
-    setup_skills = collect_setup_skills()
-    md = render_md(skills, setup_skills)
+    md = render_md(skills)
     js = json.dumps(
-        {"repo": REPO_URL, "skills": skills, "setup_skills": setup_skills},
+        {"repo": REPO_URL, "skills": skills},
         indent=2,
         ensure_ascii=False,
     ) + "\n"
@@ -145,7 +107,7 @@ def main():
         return 0
     md_path.write_text(md, encoding="utf-8")
     js_path.write_text(js, encoding="utf-8")
-    print(f"wrote INDEX.md and index.json ({len(skills)} skills, {len(setup_skills)} setup skills)")
+    print(f"wrote INDEX.md and index.json ({len(skills)} skills)")
     return 0
 
 

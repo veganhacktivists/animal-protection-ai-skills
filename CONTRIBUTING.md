@@ -29,24 +29,6 @@ The folder name must match the `name` field in `SKILL.md` exactly.
 
 `SKILL.md` is what the agent reads when it uses the skill. `README.md` is the skill's setup guide: what the skill needs, how to install it and how to check it works. GitHub shows it to anyone who opens the skill's folder, so a person or an agent given a link to the folder sees it first. There is a template under [The setup guide](#the-setup-guide-readmemd).
 
-## Setup skills: a different shape
-
-Some capabilities only work wired to one person's own accounts, channels, and tools. Sharing a copy of someone else's version produces noise, or copies their setup assumptions along with it. For those, submit a **setup skill** instead: a single markdown file written for an AI agent, telling it how to interview its own user and build them a bespoke version. The reusable part is the process and the judgement calls, not a copy-pasteable file.
-
-```
-setup-skills/
-  skill-setup-your-topic.md
-```
-
-- Name it `skill-setup-<topic>.md`. No `SKILL.md`, no folder: it is one flat file.
-- Frontmatter uses `title`, `description`, `license`, and the same `metadata` block as a normal skill (`version`, `author`, `author-org`, `last-verified`, `verified-on`). No `name` or `compatibility` field.
-- The body should tell the reading agent, explicitly, not to run the steps itself but to build a personalised version for its user. Say what is being built and why it is not a shared skill, what the agent should discover before asking anything, the questions to ask, the core logic to build in, and what is a safety constraint rather than a preference. Keep specific tools out of the logic itself, describing "their task system" rather than naming one product.
-- It never gets installed or zipped, and does not appear in `.claude-plugin/marketplace.json`. It is read on request, not auto-triggered.
-
-The same review checklist below applies, and `tools/validate_skills.py` checks these too.
-
-A setup skill is not the same thing as a skill's setup guide. Every installable skill has a setup guide (its `README.md`). A setup skill is a different kind of submission, which you send instead of an installable skill.
-
 ## SKILL.md frontmatter
 
 Copy this and fill it in. Every field shown is required in this repo except `compatibility`.
@@ -97,7 +79,26 @@ Keep it portable:
 
 ## The setup guide (README.md)
 
-Every skill folder needs a `README.md` written for the person installing the skill, with a last section for their AI agent. Copy this template. Fill in the parts in angle brackets and keep the install steps as they are, so every skill's guide gives the same instructions.
+Every skill folder needs a `README.md`: the skill's setup guide. It is written for the person installing the skill, and its last section is for their AI agent. When someone gives their agent a link to the skill, this is what tells the agent how to install it and what to set up.
+
+To write one, copy the template below and fill in the parts in angle brackets:
+
+- **The opening:** one or two sentences on what the skill does, in words a working advocate would use.
+- **What you need first:** everything the skill needs beyond the AI agent, matching the `## Requirements` section of `SKILL.md`. For each thing, say how to get it on each platform.
+- **Installing it:** keep this exactly as it is apart from the skill name, so every guide gives the same instructions. If the install routes change, we update every guide at once.
+- **Checking it works:** one realistic request that runs the skill's main job, and what a good result looks like, so the user can tell it worked. Base the description on the output rules in `SKILL.md` and do not promise more than the skill delivers.
+- **For AI agents installing this skill:** keep the steps in the template. If the skill has to be wired to the user's own setup, add the steps described below.
+
+### Skills that have to be wired to the user's own setup
+
+Some skills only work once they know about their user: which chats to read, which task manager to use, who their colleagues are. These are welcome. Split the skill in two:
+
+- `SKILL.md` holds the logic every user shares, plus a `## Your user's setup` section listing each thing the skill needs to know, with `<not set up yet>` as the value. Tell the agent to stop and offer to run the setup if any value still says `<not set up yet>`.
+- The setup guide's agent section holds the setup steps, in this order: what the agent should find out for itself before asking anything (which connectors and tools it can reach, the user's own name or ID on each platform, any context files the user keeps), the questions to ask the user, and where to write the answers (the `## Your user's setup` section of the installed copy). If the skill should run on a schedule, say how to set that up and what timing works.
+
+Keep specific products out of the shared logic, describing "the user's task manager" rather than naming one. Say which rules are safety rules rather than preferences, such as "never send a message", so the agent builds them in instead of asking about them. [`skills/missed-message-triage`](skills/missed-message-triage/) is a worked example.
+
+### Template
 
 ````markdown
 # Setting up <skill-name>
@@ -135,6 +136,7 @@ A good result <what the user should see>.
 2. Check "What you need first" against what you can see. Ask the user before connecting an account or installing a tool.
 3. Install the whole folder, not only `SKILL.md`, in your skills location. If the user asked for changes, install the changed copy and tell them what you changed.
 4. Do not change anything outside your skills location without asking.
+<If the skill has to be wired to the user's own setup, add numbered steps here: what to find out first, the questions to ask, and where to write the answers.>
 5. Offer to run the request under "Checking it works".
 ````
 
@@ -152,7 +154,7 @@ Check that the user wrote the skill, or has the author's permission to share it.
 
 - It is a skill and fits [What we accept](#what-we-accept).
 - Read [INDEX.md](INDEX.md). If an existing skill already does the same job, suggest improving that one instead (see [Updating an existing skill](#updating-an-existing-skill)).
-- It can work for anyone. If it only works wired to the user's own accounts, channels and tools, submit a [setup skill](#setup-skills-a-different-shape) instead and adapt the rest of these steps to that shape.
+- If it only works once it knows about its user, such as which chats to read, that is fine. Steps 5 and 8 cover how to share it.
 
 ### 3. Make a copy to work on
 
@@ -180,7 +182,7 @@ Rewrite each item on the list so the skill works for any user:
 - Replace a tool name with the capability: "If your agent can search the user's email, do so. Otherwise, ask the user to paste the message."
 - If the skill depends on another unpublished skill or file, copy in what it needs (into `references/` if it is long), or drop the dependency.
 
-Keep the skill's behaviour and rules the same. Do not add features, and do not drop a rule because it is awkward to make general. If the skill cannot be made general without losing what makes it useful, it should be a setup skill (see step 2).
+Keep the skill's behaviour and rules the same. Do not add features, and do not drop a rule because it is awkward to make general. Where the skill needs something only its user can tell it, such as which chats to read, move that into a `## Your user's setup` section for the installing agent to fill in (see [Skills that have to be wired to the user's own setup](#skills-that-have-to-be-wired-to-the-users-own-setup)).
 
 ### 6. Show the user and get their go-ahead
 
@@ -198,11 +200,13 @@ Choose the name using the rules under [SKILL.md frontmatter](#skillmd-frontmatte
 
 ### 8. Write the setup guide
 
-Add `README.md` to the folder, using the template under [The setup guide](#the-setup-guide-readmemd). "What you need first" should match the `## Requirements` section. For "Checking it works", pick a request that runs the skill's main job. You test it in the next step.
+Add `README.md` to the folder, following [The setup guide](#the-setup-guide-readmemd). "What you need first" should match the `## Requirements` section. For "Checking it works", pick a request that runs the skill's main job. You test it in the next step. If the skill has a `## Your user's setup` section, write the setup steps into the guide's agent section.
 
 ### 9. Test it end to end
 
 Run the new version on at least one agent, in a fresh conversation, with two or three realistic requests, including the one in the setup guide. If installing it would clash with the user's own copy of the same skill, test it without installing: in a fresh conversation, tell the agent to read and follow the new `SKILL.md`. If you cannot start a fresh conversation yourself, ask the user to run the requests and tell you what happened.
+
+For a skill that has to be wired to the user's setup, test the setup steps too, starting from a fresh install.
 
 Fix anything that breaks. Then set `last-verified` to the date of the test and `verified-on` to the agent or agents you used. Keep the requests and what a good result looked like, because the pull request asks for them.
 
@@ -233,7 +237,7 @@ The checker does not catch everything. It finds agent-only tool names, file path
     },
 ```
 
-Then add `"./skills/your-skill-name"` to the end of the `skills` list in the `all-skills` entry. Setup skills never go in this file.
+Then add `"./skills/your-skill-name"` to the end of the `skills` list in the `all-skills` entry.
 
 ### 12. Open the pull request, or email the skill
 
