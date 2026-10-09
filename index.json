@@ -12,7 +12,8 @@
       "compatibility": "",
       "requirements": "None. Works with the agent alone. It needs real evidence about the organization, gathered one of two ways:",
       "path": "skills/ai-readiness-self-assessment",
-      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-readiness-self-assessment"
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-readiness-self-assessment",
+      "setup_guide": "skills/ai-readiness-self-assessment/README.md"
     },
     {
       "name": "ai-smell",
@@ -25,7 +26,8 @@
       "compatibility": "",
       "requirements": "None. Works with the agent alone.",
       "path": "skills/ai-smell",
-      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-smell"
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-smell",
+      "setup_guide": "skills/ai-smell/README.md"
     },
     {
       "name": "assess-relevance",
@@ -38,7 +40,8 @@
       "compatibility": "",
       "requirements": "None. Works with the agent alone. Gives a sharper answer when the agent has some saved context about the user's work (a memory feature, a project's custom instructions, or a `CLAUDE.md`/`AGENTS.md` file) — without that, it falls back to a best-effort verdict for a typical animal protection worker and says so.",
       "path": "skills/assess-relevance",
-      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/assess-relevance"
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/assess-relevance",
+      "setup_guide": "skills/assess-relevance/README.md"
     },
     {
       "name": "catch-up",
@@ -51,7 +54,8 @@
       "compatibility": "",
       "requirements": "None. Works with the agent alone. Catching up on a *different* conversation needs an agent that can search its own past sessions (Claude Code and Codex can; a fresh browser chat usually cannot). Without that, the user pastes the conversation in.",
       "path": "skills/catch-up",
-      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/catch-up"
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/catch-up",
+      "setup_guide": "skills/catch-up/README.md"
     },
     {
       "name": "graph-advisor",
@@ -64,20 +68,22 @@
       "compatibility": "",
       "requirements": "None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.",
       "path": "skills/graph-advisor",
-      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/graph-advisor"
-    }
-  ],
-  "setup_skills": [
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/graph-advisor",
+      "setup_guide": "skills/graph-advisor/README.md"
+    },
     {
-      "title": "Skill setup — Missed message task triage",
-      "description": "Interviews the user and builds them a personalised, read-only agent that periodically sweeps their messaging apps for requests that never became tasks, then proposes those as draft tasks for approval. There is no installable skill to copy: it only works wired to the specific channels, chats, and task manager the user actually has. Use when someone wants to stop losing requests that arrive as chat messages rather than tasks.",
-      "version": "1.0.0",
+      "name": "missed-message-triage",
+      "description": "Sweeps the user's messaging apps for requests that were asked of them and never became tasks, then proposes them as a numbered list of draft tasks for the user to approve. Read-only: it never creates a task and never sends a message. It has to be wired to the user's own chats and task manager when it is installed (see README.md in this folder). Use when someone asks to check for missed requests, \"what did people ask me that I haven't done\", \"triage my messages into tasks\", \"did I miss anything in chat\", or when its scheduled run starts. Not for replying to messages or managing existing tasks.",
+      "version": "2.0.0",
       "author": "Richie (Thomas Manandhar-Richardson)",
       "author_org": "Vegan Hacktivists",
       "last_verified": "2026-09-08",
       "verified_on": "Claude Code, Claude Cowork",
-      "path": "setup-skills/skill-setup-missed-message-triage.md",
-      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/blob/main/setup-skills/skill-setup-missed-message-triage.md"
+      "compatibility": "",
+      "requirements": "Needs read access to the messaging apps where people ask the user for things, read access to their task manager (including searching tasks with future due dates), and somewhere private to keep a state file. In Claude, connect a connector for each messaging app and the task manager. In Codex, install an MCP server for each. An aggregator such as Beeper can cover several messaging apps through one connection. Running it on a schedule needs an agent that can run scheduled tasks, such as Claude Code or Codex. It must be set up once before first use: see `README.md` in this folder.",
+      "path": "skills/missed-message-triage",
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/missed-message-triage",
+      "setup_guide": "skills/missed-message-triage/README.md"
     }
   ]
 }

@@ -10,7 +10,7 @@ A skill is a folder containing a `SKILL.md` file. That file is a set of instruct
 
 The format is the open [Agent Skills standard](https://agentskills.io/), so the same folder works in Claude (Code, Cowork and claude.ai), OpenAI Codex, Gemini CLI, GitHub Copilot and Microsoft 365 Copilot. See [Installing a skill](#installing-a-skill) for the details per agent.
 
-A few entries under [`setup-skills/`](setup-skills/) are a different shape: not something you install, but a single file written for your agent to read and act on directly. It interviews you and builds a personal version wired to your own accounts, because the value only comes from being wired to your specific channels and tools. Point your agent at one with: "Read `setup-skills/<file>` and set this up for me." The [skills index](INDEX.md) lists these separately from the installable skills.
+Each skill folder also has a `README.md`, the skill's setup guide. It says what the skill needs, how to install it and how to check it works, and has a section for your agent. A few skills only work once they know about you, such as which chats to read. For those, the setup guide tells your agent what to find out and what to ask you.
 
 ## How to use this repo
 
@@ -27,9 +27,11 @@ That last one is the point. A skill is plain text. Your agent can read it, discu
 
 Start with [`INDEX.md`](INDEX.md). It lists every skill with a one-line description, who wrote it, what it needs, and when we last checked it works.
 
+If you are an AI agent reading this repo for a user, start with [`AGENTS.md`](AGENTS.md).
+
 ## Installing a skill
 
-Every skill lives at `skills/<skill-name>/`. Your agent can usually do this for you if you ask. If you would rather do it yourself:
+Every skill lives at `skills/<skill-name>/`, with its setup guide in the folder's `README.md`. Your agent can usually install a skill for you if you ask. If you would rather do it yourself:
 
 **Claude Code**
 
@@ -82,7 +84,7 @@ We want skills from across the movement, and the author is credited in the skill
 
 Two ways to submit:
 
-1. **Open a pull request.** Read [CONTRIBUTING.md](CONTRIBUTING.md) for the folder layout and the required fields. Your agent can do most of this for you: "Read CONTRIBUTING.md in this repo and prepare my skill for submission."
+1. **Open a pull request.** [CONTRIBUTING.md](CONTRIBUTING.md) has every step. Your agent can do most of this for you, including for a skill it already has installed: "Read CONTRIBUTING.md in this repo and submit my catch-up skill." It will show you its changes and ask before it submits anything.
 2. **Email us** at hello@veganhacktivists.org with the skill folder attached, or a link to it. Put "Skill submission" in the subject line. We will do the pull request for you and credit you as the author.
 
 Every submission is read in full by a member of the Vegan Hacktivists AI Services team before it is merged. We check that it does what it says, that it does not do anything else, and that it works on at least one agent. We may suggest edits. We will say no to skills that are not useful to animal protection work, or that we cannot review with confidence.

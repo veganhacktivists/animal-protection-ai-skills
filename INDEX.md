@@ -2,11 +2,11 @@
 
 Every skill in this repo, generated from each skill's `SKILL.md` frontmatter by `tools/build_index.py`. Do not edit by hand.
 
-If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md` before recommending or installing a skill, and check the requirements against what the user has available. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.
+If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md` before recommending or installing a skill, and check the requirements against what the user has available. To install one, follow its setup guide. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.
 
-Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
+Machine-readable version: [`index.json`](index.json). Install instructions: each skill's setup guide, linked below.
 
-5 skills.
+6 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -16,6 +16,7 @@ Scores an organization's AI adoption against seven fixed competencies (model acc
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-08 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. It needs real evidence about the organization, gathered one of two ways:
+- **Setup guide:** [skills/ai-readiness-self-assessment/README.md](skills/ai-readiness-self-assessment/README.md)
 
 ## [ai-smell](skills/ai-smell/SKILL.md)
 
@@ -25,6 +26,7 @@ Removes AI smells (AI writing tells) from text with minimal changes, keeping the
 - **Version:** 2.1.0
 - **Last verified:** 2026-10-08 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone.
+- **Setup guide:** [skills/ai-smell/README.md](skills/ai-smell/README.md)
 
 ## [assess-relevance](skills/assess-relevance/SKILL.md)
 
@@ -34,6 +36,7 @@ Reads a report, blog post, paper, policy brief, announcement, web page, or file 
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-08 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. Gives a sharper answer when the agent has some saved context about the user's work (a memory feature, a project's custom instructions, or a `CLAUDE.md`/`AGENTS.md` file) — without that, it falls back to a best-effort verdict for a typical animal protection worker and says so.
+- **Setup guide:** [skills/assess-relevance/README.md](skills/assess-relevance/README.md)
 
 ## [catch-up](skills/catch-up/SKILL.md)
 
@@ -43,6 +46,7 @@ Catch the user up on a long-running conversation they have not looked at in days
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. Catching up on a *different* conversation needs an agent that can search its own past sessions (Claude Code and Codex can; a fresh browser chat usually cannot). Without that, the user pastes the conversation in.
+- **Setup guide:** [skills/catch-up/README.md](skills/catch-up/README.md)
 
 ## [graph-advisor](skills/graph-advisor/SKILL.md)
 
@@ -52,15 +56,14 @@ Critiques data visualisations and suggests improvements to communicate their goa
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.
+- **Setup guide:** [skills/graph-advisor/README.md](skills/graph-advisor/README.md)
 
-## Setup skills
+## [missed-message-triage](skills/missed-message-triage/SKILL.md)
 
-These are not installable skills. Each is a single file written for an AI agent to read and act on directly: it tells the agent how to interview its user and build them a bespoke, personal version, wired to their own accounts and tools. Point your agent at one with: "Read `<path>` and set this up for me."
-
-### [Skill setup — Missed message task triage](setup-skills/skill-setup-missed-message-triage.md)
-
-Interviews the user and builds them a personalised, read-only agent that periodically sweeps their messaging apps for requests that never became tasks, then proposes those as draft tasks for approval. There is no installable skill to copy: it only works wired to the specific channels, chats, and task manager the user actually has. Use when someone wants to stop losing requests that arrive as chat messages rather than tasks.
+Sweeps the user's messaging apps for requests that were asked of them and never became tasks, then proposes them as a numbered list of draft tasks for the user to approve. Read-only: it never creates a task and never sends a message. It has to be wired to the user's own chats and task manager when it is installed (see README.md in this folder). Use when someone asks to check for missed requests, "what did people ask me that I haven't done", "triage my messages into tasks", "did I miss anything in chat", or when its scheduled run starts. Not for replying to messages or managing existing tasks.
 
 - **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Last verified:** 2026-09-08 on Claude Code, Claude Cowork
+- **Requirements:** Needs read access to the messaging apps where people ask the user for things, read access to their task manager (including searching tasks with future due dates), and somewhere private to keep a state file. In Claude, connect a connector for each messaging app and the task manager. In Codex, install an MCP server for each. An aggregator such as Beeper can cover several messaging apps through one connection. Running it on a schedule needs an agent that can run scheduled tasks, such as Claude Code or Codex. It must be set up once before first use: see `README.md` in this folder.
+- **Setup guide:** [skills/missed-message-triage/README.md](skills/missed-message-triage/README.md)
