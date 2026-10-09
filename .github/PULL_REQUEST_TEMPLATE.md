@@ -2,6 +2,8 @@
 
 Name: 
 New skill or update to an existing one: 
+Prepared by (you, or which AI agent): 
+If an AI agent prepared it, has the author read the final version? 
 
 ## What it does
 
@@ -28,6 +30,8 @@ Anything the skill needs beyond the agent (connectors, command line tools, accou
 
 - [ ] Frontmatter follows CONTRIBUTING.md and `python3 tools/validate_skills.py` passes
 - [ ] `INDEX.md` and `index.json` regenerated with `python3 tools/build_index.py`
+- [ ] `README.md` setup guide added from the template in CONTRIBUTING.md
+- [ ] Entry added to `.claude-plugin/marketplace.json`, and the skill added to the `all-skills` list
 - [ ] No personal names, machine file paths, internal channel names, keys or credentials
 - [ ] No agent-specific frontmatter fields or tool names
 - [ ] I have the right to share this under the MIT licence

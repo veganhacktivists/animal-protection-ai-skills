@@ -27,9 +27,13 @@ That last one is the point. A skill is plain text. Your agent can read it, discu
 
 Start with [`INDEX.md`](INDEX.md). It lists every skill with a one-line description, who wrote it, what it needs, and when we last checked it works.
 
+If you are an AI agent reading this repo for a user, start with [`AGENTS.md`](AGENTS.md).
+
 ## Installing a skill
 
-Every skill lives at `skills/<skill-name>/`. Your agent can usually do this for you if you ask. If you would rather do it yourself:
+Every skill lives at `skills/<skill-name>/`. If the folder has a `README.md`, that is the skill's setup guide: what it needs, how to install it and how to check it works.
+
+Your agent can usually install a skill for you if you ask. If you would rather do it yourself:
 
 **Claude Code**
 
@@ -82,7 +86,7 @@ We want skills from across the movement, and the author is credited in the skill
 
 Two ways to submit:
 
-1. **Open a pull request.** Read [CONTRIBUTING.md](CONTRIBUTING.md) for the folder layout and the required fields. Your agent can do most of this for you: "Read CONTRIBUTING.md in this repo and prepare my skill for submission."
+1. **Open a pull request.** [CONTRIBUTING.md](CONTRIBUTING.md) has every step. Your agent can do most of this for you, including for a skill it already has installed: "Read CONTRIBUTING.md in this repo and submit my catch-up skill." It will show you its changes and ask before it submits anything.
 2. **Email us** at hello@veganhacktivists.org with the skill folder attached, or a link to it. Put "Skill submission" in the subject line. We will do the pull request for you and credit you as the author.
 
 Every submission is read in full by a member of the Vegan Hacktivists AI Services team before it is merged. We check that it does what it says, that it does not do anything else, and that it works on at least one agent. We may suggest edits. We will say no to skills that are not useful to animal protection work, or that we cannot review with confidence.
