@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-5 skills.
+6 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -52,6 +52,15 @@ Critiques data visualisations and suggests improvements to communicate their goa
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.
+
+## [research-grilling](skills/research-grilling/SKILL.md)
+
+Interviews the person running a research project, round by round, until every decision about purpose, scope, data, evidence and methods is settled, then writes a research brief plus a list of questions to send the client. Use whenever someone is starting, scoping or kicking off a research project, has just won or been sent a proposal, RFP or project brief, or says "grill me on this project", "research grill", "kick off this project", "what do we need to ask the client", "iron out the methods" or "pin down the methodology", even if they never say "grill". Also use when the client's answers come back and the brief needs updating. For plans that are not research projects, a general grilling skill fits better.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-10-13 on Claude Code
+- **Requirements:** None. Works with the agent alone.
 
 ## Setup skills
 
