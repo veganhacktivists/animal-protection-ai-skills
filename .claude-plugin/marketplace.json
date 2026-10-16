@@ -45,6 +45,13 @@
       "skills": ["./skills/ai-readiness-self-assessment"]
     },
     {
+      "name": "research-grilling",
+      "description": "Grills you about a research project before it starts, until purpose, scope, data and methods are settled, then writes a research brief and questions for the client",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/research-grilling"]
+    },
+    {
       "name": "all-skills",
       "description": "Every installable skill in the Animal Protection Skills repo in one install",
       "source": "./",
@@ -54,7 +61,8 @@
         "./skills/graph-advisor",
         "./skills/ai-smell",
         "./skills/assess-relevance",
-        "./skills/ai-readiness-self-assessment"
+        "./skills/ai-readiness-self-assessment",
+        "./skills/research-grilling"
       ]
     }
   ]
