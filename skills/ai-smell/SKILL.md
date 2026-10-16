@@ -3,7 +3,7 @@ name: ai-smell
 description: "Removes AI smells (AI writing tells) from text with minimal changes, keeping the original wording and structure intact. Not a rewrite tool. Use when someone pastes AI-generated or AI-assisted text and says \"fix this\", \"check this for AI smells\", \"make this sound human\", \"de-AI this\", \"strip the AI tells\", or \"this reads like ChatGPT wrote it\". Do NOT trigger for general editing or proofreading requests that don't mention AI voice."
 license: MIT
 metadata:
-  version: "2.1.0"
+  version: "2.2.0"
   author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
   last-verified: "2026-10-08"
@@ -114,6 +114,11 @@ Same shape, same tell. Catch all of these forms: "The X isn't A, it's B", "X is 
 
 Fix it by deleting the denied half and keeping the claim: "The gap isn't ability, it's exposure and time to learn the tools properly" becomes "What they lack is exposure, and time to learn the tools properly." If the rejected option genuinely needs ruling out, give it its own sentence and say why it is wrong.
 
+Two more shapes do the same job:
+
+- **"Y rather than X"**, the same contrast flipped round, with the real claim first. Wikipedia notes it is especially common in recent AI output. "Treat this as a starting point rather than a final answer." "Modern researchers see it as a loose coalition rather than a fixed state." Same fix: keep Y and drop "rather than X", unless X is a view someone in the text actually holds.
+- **"No X, no Y, just Z"**, a list of denials leading up to the real point. "No jargon, no fluff, just results." "No sign-up, no fees, just open the link." Fix: state Z plainly ("Open the link"). If the missing things genuinely matter to the reader, say so in a normal sentence: "It's free and you don't need an account."
+
 ### The corrective fragment ("Now, not later.")
 
 A short standalone fragment appended to an instruction or claim, which defines it by rejecting the obvious alternative:
@@ -161,6 +166,7 @@ The biggest opportunity in what? In life? In business? Of all the options this d
 - Only add a reference point the surrounding text already supplies. Do not invent a ranking or a statistic to justify the word; that breaks the no-new-information rule below. If nothing nearby backs it up, cut it.
 - Catches: the biggest, the worst, the best, the most important, the greatest, the single most, the number one, the key (as in "the key challenge"), unprecedented, unparalleled, unmatched, like never before, second to none.
 - A superlative is fine when the comparison is stated or obvious from context: "the largest of the three grants", "our most-read post this year".
+- Plain factual firsts and onlys are fine too, and are more typical of human writing than AI writing: "was the first UK sanctuary to do this", "is the only vegan option on the menu", "one of the best-attended sessions we've run". Leave them alone. They name a specific fact; the tell is a superlative that names nothing.
 - Close relative of the "the" rule above: both claim a ranking the text has not established.
 
 ### Rule of three (tricolon)
@@ -201,6 +207,25 @@ The definite article is doing all the work. "The win" asserts that this one thin
 - Watch the ends of paragraphs and sections hardest. Like the closers above, this shape is most often used to land a beat.
 - Test it: swap the noun phrase for a specific consequence, number, or stake. If you cannot, there was no claim there to begin with.
 - Sibling of the "X matters" and "that's the whole point" closers above. Same job, dressed as a noun rather than a sentence.
+
+### Puffed-up significance ("marking a pivotal moment")
+
+AI ties ordinary facts to bigger trends, so that every detail seems to mark a turning point or reflect a wider movement:
+
+- "The institute was set up in 1989, marking a pivotal moment in the evolution of regional statistics."
+- "The move represented a significant shift towards independence."
+- "This reflects broader trends in the sector."
+- "The campaign has sparked debate about consent and dignity."
+- "Grief bots raise questions about identity and what it means to live on."
+
+Wikipedia's guide to AI writing lists it first among its content tells. Nothing in the text shows the pivot, the shift or the debate. The clause just asserts that the fact matters more than it looks.
+
+It also comes in a hedged form, where the writer admits the thing is minor and then claims importance anyway: "Though it saw only limited use, it contributes to the broader history of early aviation."
+
+- **Cut the significance clause and keep the fact.** "The institute was set up in 1989." If the text already gives a concrete consequence (a number, a change someone can point to), keep that instead.
+- Catches: marking/marks a (pivotal/key/significant) moment, represents/marks a shift, a key turning point, reflects broader, part of a broader movement, setting the stage for, shaping the, left an indelible mark, deeply rooted, enduring legacy, has sparked/generated debate, raises questions about, prompted broader reflection, shaped discussions about, contributes to the broader, a focal point.
+- Often arrives as an -ing phrase tacked on after a comma ("..., marking a pivotal moment"), so it also counts towards that limit.
+- Sibling of the "X matters" closers and "a testament to" above. All three claim importance instead of showing it.
 
 ### Manufactured-significance prefaces ("I want to be X about Y, because Z")
 
@@ -260,6 +285,7 @@ AI labels a fact as nice, neat, interesting or fun before giving it, and adds wh
 - **Cut it.** In nearly every case the sentence says the same thing without it: "what the electricity and the water add up to".
 - Keep it only when it corrects something the text has just said or the reader plausibly believes ("The calculator isn't free. It actually costs $8."), and then only once. Maximum one per 500 words.
 - Same family: "really" ("really three questions"), "truly", "genuinely", "simply", "just" used as an intensifier. Cut them the same way, unless the word changes the meaning.
+- **Do not widen this to every qualifier.** Wikipedia's guide to AI writing lists "very", "perhaps", "tends to", "in order to" and "the fact that" as more common in human writing than in AI writing. Leave those alone. Cutting them makes the text look more machine-made, not less.
 - Check headings and slide text hardest. "Actually" in a heading is almost always filler.
 
 ### The handoff pair ("The research was his. AI helped build the tool.")
@@ -355,6 +381,7 @@ Return the edited text only. No preamble ("Here's the edited version:"), no post
 If the text is very long (1000+ words), preserve any structural elements (headers, bullet points, numbered lists) that are genuinely useful, while still applying all the rules above.
 
 If the user provides specific instructions alongside the text (e.g. "make it shorter," "keep the headers," "this is for LinkedIn"), follow those instructions as well. They take priority over general rules where there is a conflict.
+
 ## Requirements
 
 None. Works with the agent alone.
