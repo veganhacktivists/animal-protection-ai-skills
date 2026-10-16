@@ -45,6 +45,13 @@
       "skills": ["./skills/ai-readiness-self-assessment"]
     },
     {
+      "name": "missed-message-triage",
+      "description": "Sweep your messaging apps for requests that never became tasks and propose them as draft tasks to approve",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/missed-message-triage"]
+    },
+    {
       "name": "all-skills",
       "description": "Every installable skill in the Animal Protection Skills repo in one install",
       "source": "./",
@@ -54,7 +61,8 @@
         "./skills/graph-advisor",
         "./skills/ai-smell",
         "./skills/assess-relevance",
-        "./skills/ai-readiness-self-assessment"
+        "./skills/ai-readiness-self-assessment",
+        "./skills/missed-message-triage"
       ]
     }
   ]
