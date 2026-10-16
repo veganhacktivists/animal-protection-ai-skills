@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-5 skills.
+6 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -52,6 +52,16 @@ Critiques data visualisations and suggests improvements to communicate their goa
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.
+
+## [search-riaak](skills/search-riaak/SKILL.md)
+
+Searches RIAAK (riaak.netlify.app), a free public knowledge base of animal advocacy research, and answers using only the notes it finds, with a clickable link to every source. RIAAK holds summaries of academic papers, NGO and think tank reports, and practitioner notes on factory farming, alternative proteins, diet change, messaging, policy, farmed fish and animal welfare. Use this whenever the user wants evidence or sources on an animal advocacy topic, asks "what does the research say about...", "find me studies on...", "is there evidence that...", "search RIAAK", "check RIAAK", or wants links to reports they can read themselves. Do not use it for general web searches or for topics outside animal advocacy, food systems and alternative proteins.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-09-30 on Claude Code
+- **Requirements:** Needs internet access and a way to make an HTTPS request with a custom header.
+- **Compatibility:** Needs internet access and a way to make an HTTPS request with a custom header, such as running curl.
 
 ## Setup skills
 
