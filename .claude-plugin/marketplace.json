@@ -52,6 +52,13 @@
       "skills": ["./skills/research-grilling"]
     },
     {
+      "name": "meeting-wisdom-bank",
+      "description": "After meetings where you give advice, saves the advice, ideas and stories worth keeping to a wisdom bank your team and their AI can look things up in",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/meeting-wisdom-bank"]
+    },
+    {
       "name": "all-skills",
       "description": "Every installable skill in the Animal Protection Skills repo in one install",
       "source": "./",
@@ -62,7 +69,8 @@
         "./skills/ai-smell",
         "./skills/assess-relevance",
         "./skills/ai-readiness-self-assessment",
-        "./skills/research-grilling"
+        "./skills/research-grilling",
+        "./skills/meeting-wisdom-bank"
       ]
     }
   ]
