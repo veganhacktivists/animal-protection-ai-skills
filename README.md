@@ -42,7 +42,7 @@ Or copy the skill folder into `~/.claude/skills/` (all projects) or `.claude/ski
 
 **Claude Cowork and claude.ai**
 
-Download the skill folder as a zip (each release on the [Releases page](../../releases) has one zip per skill) and upload it in Settings under Capabilities, then Skills.
+Download the skill folder as a zip (each release on the [Releases page](https://github.com/veganhacktivists/animal-protection-ai-skills/releases) has one zip per skill) and upload it in Settings under Capabilities, then Skills.
 
 **OpenAI Codex**
 
@@ -66,7 +66,7 @@ gh skill install veganhacktivists/animal-protection-ai-skills ai-smell
 
 **Microsoft 365 Copilot**
 
-Upload the skill's zip from the [Releases page](../../releases) under Customize, then Upload skill.
+Upload the skill's zip from the [Releases page](https://github.com/veganhacktivists/animal-protection-ai-skills/releases) under Customize, then Upload skill.
 
 **Any agent, one command**
 
@@ -101,7 +101,7 @@ Each `SKILL.md` carries a `version` and a `last-verified` date in its frontmatte
 
 ## Licence
 
-Everything here is [MIT licensed](LICENSE). Copy it, change it, use it inside your organisation, no permission needed.
+Repository contributions are [MIT licensed](LICENSE). Some skills adapt third-party material whose original terms still apply; retain the attribution and license notices included in each skill folder. In particular, `nonprofit-ai-work-explorer` retains CC BY 4.0 for its Get2Know source material.
 
 ## Related
 

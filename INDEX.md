@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-6 skills.
+7 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -52,6 +52,15 @@ Critiques data visualisations and suggests improvements to communicate their goa
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.
+
+## [nonprofit-ai-work-explorer](skills/nonprofit-ai-work-explorer/SKILL.md)
+
+Interview one nonprofit staff member, volunteer, manager, or leader about AI in their own work, their team, or their organization. Explore a range of opportunities or work through a specific task. End with a grounded shortlist, a small experiment, or a reason to wait, without assuming the participant speaks for everyone or has authority to implement a change.
+
+- **Author:** Mike Wigmore (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-11-03 on Codex (simulated interviews)
+- **Requirements:** None. Works with the agent alone. The agent needs access to this file and the accompanying references.
 
 ## [research-grilling](skills/research-grilling/SKILL.md)
 

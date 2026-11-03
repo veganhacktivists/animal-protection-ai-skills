@@ -52,6 +52,13 @@
       "skills": ["./skills/research-grilling"]
     },
     {
+      "name": "nonprofit-ai-work-explorer",
+      "description": "Explore AI opportunities across a nonprofit role, department or organization through a one-to-one interview, ending with a shortlist or a small next step",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/nonprofit-ai-work-explorer"]
+    },
+    {
       "name": "all-skills",
       "description": "Every installable skill in the Animal Protection Skills repo in one install",
       "source": "./",
@@ -62,7 +69,8 @@
         "./skills/ai-smell",
         "./skills/assess-relevance",
         "./skills/ai-readiness-self-assessment",
-        "./skills/research-grilling"
+        "./skills/research-grilling",
+        "./skills/nonprofit-ai-work-explorer"
       ]
     }
   ]

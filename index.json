@@ -67,6 +67,19 @@
       "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/graph-advisor"
     },
     {
+      "name": "nonprofit-ai-work-explorer",
+      "description": "Interview one nonprofit staff member, volunteer, manager, or leader about AI in their own work, their team, or their organization. Explore a range of opportunities or work through a specific task. End with a grounded shortlist, a small experiment, or a reason to wait, without assuming the participant speaks for everyone or has authority to implement a change.",
+      "version": "1.0.0",
+      "author": "Mike Wigmore",
+      "author_org": "Vegan Hacktivists",
+      "last_verified": "2026-11-03",
+      "verified_on": "Codex (simulated interviews)",
+      "compatibility": "",
+      "requirements": "None. Works with the agent alone. The agent needs access to this file and the accompanying references.",
+      "path": "skills/nonprofit-ai-work-explorer",
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/nonprofit-ai-work-explorer"
+    },
+    {
       "name": "research-grilling",
       "description": "Interviews the person running a research project, round by round, until every decision about purpose, scope, data, evidence and methods is settled, then writes a research brief plus a list of questions to send the client. Use whenever someone is starting, scoping or kicking off a research project, has just won or been sent a proposal, RFP or project brief, or says \"grill me on this project\", \"research grill\", \"kick off this project\", \"what do we need to ask the client\", \"iron out the methods\" or \"pin down the methodology\", even if they never say \"grill\". Also use when the client's answers come back and the brief needs updating. For plans that are not research projects, a general grilling skill fits better.",
       "version": "1.0.0",
