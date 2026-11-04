@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-7 skills.
+8 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -61,6 +61,15 @@ After a meeting where I gave advice, reads the full transcript and pulls out wha
 - **Version:** 1.0.0
 - **Last verified:** 2026-11-03 on Claude Code
 - **Requirements:** - **A meeting transcript.** The full transcript, from a meeting recorder (for example Fathom, Otter or Fireflies, or the transcripts Zoom, Google Meet and Microsoft Teams make), from a file, or pasted into the chat. If the agent has a connector to the user's recorder, it fetches the transcript itself. - **Somewhere to save the bank,** in one of these formats: - Markdown files: an agent that can write files on the user's computer, such as Claude Code, Claude Cowork, Codex, Gemini CLI or GitHub Copilot. - Word documents: an agent that can create Word files. In the Claude app, turn on file creation. Coding agents need Pandoc or Python installed. - Google Docs: a Google Drive connector that can create files. - Notion pages: a Notion connector. - **Setup.** "Your user's setup" below has to be filled in before the first run. The setup guide (`README.md` in this folder) explains how.
+
+## [nonprofit-ai-work-explorer](skills/nonprofit-ai-work-explorer/SKILL.md)
+
+Interview one nonprofit staff member, volunteer, manager, or leader about AI in their own work, their team, or their organization. Explore a range of opportunities or work through a specific task. End with a grounded shortlist, a small experiment, or a reason to wait, without assuming the participant speaks for everyone or has authority to implement a change.
+
+- **Author:** Mike Wigmore (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-11-03 on Codex (simulated interviews)
+- **Requirements:** None. Works with the agent alone. The agent needs access to this file and the accompanying references.
 
 ## [research-grilling](skills/research-grilling/SKILL.md)
 

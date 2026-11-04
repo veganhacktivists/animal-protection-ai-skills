@@ -52,6 +52,13 @@
       "skills": ["./skills/research-grilling"]
     },
     {
+      "name": "nonprofit-ai-work-explorer",
+      "description": "Explore AI opportunities across a nonprofit role, department or organization through a one-to-one interview, ending with a shortlist or a small next step",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/nonprofit-ai-work-explorer"]
+    },
+    {
       "name": "meeting-wisdom-bank",
       "description": "After meetings where you give advice, saves the advice, ideas and stories worth keeping to a wisdom bank your team and their AI can look things up in",
       "source": "./",
@@ -70,6 +77,7 @@
         "./skills/assess-relevance",
         "./skills/ai-readiness-self-assessment",
         "./skills/research-grilling",
+        "./skills/nonprofit-ai-work-explorer",
         "./skills/meeting-wisdom-bank"
       ]
     }
