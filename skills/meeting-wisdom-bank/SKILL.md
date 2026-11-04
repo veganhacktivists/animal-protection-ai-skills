@@ -1,10 +1,10 @@
 ---
 name: meeting-wisdom-bank
 description: >-
-  After a meeting where I gave advice, reads the full transcript and pulls out what is worth keeping: advice and the reasoning behind it, ideas worth trying, and short real stories that show a principle. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Then saves the result to my wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says "add this meeting to my wisdom bank", "extract the wisdom from this call", "save the advice I gave in that meeting", "capture my feedback from today's one-to-ones", "what did I say in that call that my team should keep", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.
+  After a meeting where I gave advice, reads the full transcript and pulls out what is worth keeping from what I said: my advice and the reasoning behind it, ideas I raised, and short real stories I told that show a principle. Other people's points stay out. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Then saves the result to my wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says "add this meeting to my wisdom bank", "extract the wisdom from this call", "save the advice I gave in that meeting", "capture my feedback from today's one-to-ones", "what did I say in that call that my team should keep", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
   last-verified: "2026-11-03"
@@ -13,13 +13,15 @@ metadata:
 
 # Meeting wisdom bank
 
-Leaders in small organisations give a lot of good advice in meetings: feedback on a draft, the reason they turned an idea down, a story about what went wrong last time. Most of it is lost once the call ends, so the team keeps coming back to the same person for the same judgement, and everything waits on them. This skill reads a meeting transcript, keeps the advice and judgement worth reusing, and saves it to a wisdom bank. The bank is a set of documents, one per meeting, that the user's team and the team's AI agents can look things up in later ("what would our director say about this draft?").
+Leaders in small organisations give a lot of good advice in meetings: feedback on a draft, the reason they turned an idea down, a story about what went wrong last time. Most of it is lost once the call ends, so the team keeps coming back to the same person for the same judgement, and everything waits on them. This skill reads a meeting transcript, keeps the user's own advice and judgement worth reusing, and saves it to a wisdom bank. The bank is a set of documents, one per meeting, that the user's team and the team's AI agents can look things up in later ("what would our director say about this draft?").
 
 Each document has three sections:
 
-1. **Wisdom.** Advice, feedback and judgement calls, with the reasoning behind them. Each is rewritten so a colleague in the same situation could act on it.
-2. **Interesting ideas.** Experiments, half-formed plans and things to try.
-3. **Case studies.** Real stories told on the call that show a principle, one paragraph each.
+1. **Wisdom.** Advice, feedback and judgement calls the user gave, with the reasoning behind them. Each is rewritten so a colleague in the same situation could act on it.
+2. **Interesting ideas.** Experiments, half-formed plans and things to try that the user raised.
+3. **Case studies.** Real stories the user told on the call that show a principle, one paragraph each.
+
+Only the user's own contributions go in. The bank exists so a colleague's AI can answer "what would this person say?". Other people's advice, however good, would answer that question with someone else's judgement.
 
 The readers are the user's colleagues and their AI agents, usually looking at one item at a time. So every item has to make sense on its own, lifted out of the document, to someone who was not on the call.
 
@@ -71,9 +73,13 @@ If you cannot find the full transcript, say where you looked and ask the user fo
 
 Sort out the speakers before you pick anything out. The user may appear under their full name, first name, email address or a speaker number. Transcribers garble names, so check them against the meeting's invite list where you can.
 
-You need this because every item records who said it. The bank is mainly for the user's own judgement, but good advice from other people on the call belongs in it too. Credit them by role.
+You need this because the bank holds only what the user said. If you get the speakers wrong, the bank fills up with someone else's views under the user's name. If you can't tell which speaker is the user, ask. On a scheduled run, skip the meeting and list it in your report.
 
 ## Step 3: pick out the material
+
+**Only what the user said.** Every item must be the user's own: advice they gave, an idea they raised or a story they told. Leave out other people's advice, ideas and stories, however good. Other people's words can appear only as the context the user's point needs, for example the question the user was answering ("Asked whether to delay the launch, ..."). If someone else made a point and the user agreed and gave their own reason, that reason is the user's, so it can go in. A bare "yes" or "good idea" is not enough.
+
+A call where the user mostly listened, or was the one being advised, will give little or nothing. That is the right result. Don't pad it with other people's points.
 
 **Be choosy, and keep it short.** The bank is a shortlist of what is worth reusing. Don't try to record the whole meeting. An hour-long call that is rich in advice usually gives three to eight pieces of wisdom, up to five ideas and up to five case studies. A status meeting may give nothing. The document for an hour-long call should rarely go past about 1,500 words. For a half-hour call, aim for about half that.
 
@@ -92,24 +98,23 @@ Advice, feedback and judgement calls that would help a colleague. The test: **wo
 - **Keep the reasoning.** A rule on its own only covers the cases it names. The reason behind it lets a colleague, or an AI reading the bank, work out what the user would say about a case nobody has raised yet. So "Lead funder updates with what changed since the last report" is weaker than the same advice plus the reason the user gave for it.
 - **Generalise it.** Advice given to one person about their situation becomes advice for anyone in that situation. Feedback on one draft becomes the standard behind it. An adviser telling a mentee "get your CEO to show the team something they built with AI" becomes "Leaders showing their own AI use gives staff permission to try it. Ask the most senior person to share one thing they did with AI at each all-staff meeting."
 - **Keep the specifics.** Numbers, tool names, steps and the reasons behind them are what make an item useful. "AI adoption takes time" is a truism. "Expect a new automation to need tuning for its first few days, and tell people that up front, or they'll give up when day one goes slightly wrong" is wisdom.
-- **Take it from anyone.** Someone else on the call often says the smartest thing. Include it and credit them by role.
 - **Keep memorable phrasing.** When the user puts something memorably, quote it (under about 25 words). Their own labels for things are worth keeping exactly.
-- **Keep instructive disagreements.** If two people disagreed and the disagreement itself is useful, put both sides in one item.
+- **Keep the user's side of a disagreement.** If the user disagreed with someone and the disagreement is useful, give the other view in a few words, only so the user's position makes sense. The item is the user's position and their reasons.
 - **Leave out descriptions that aren't advice.** "The director plans the week every Monday morning" describes a habit. It only counts as wisdom if it was offered as something others should do.
 
 ### Interesting ideas
 
-Speculation, "what if we...", experiments to run, tools someone could build, predictions. This is the half-formed material. In two or three sentences (under about 70 words), say what the idea is, why someone thought it might work and what is still open. If they agreed to actually try it, say so.
+Speculation, "what if we...", experiments to run, tools someone could build and predictions, when the user raised them. This is the half-formed material. In two or three sentences (under about 70 words), say what the idea is, why someone thought it might work and what is still open. If they agreed to actually try it, say so.
 
 ### Case studies
 
-Whenever someone tells a real story that shows a principle: the user's own experience, the other person's, or one they heard from another organisation.
+Whenever the user tells a real story that shows a principle: their own experience, or one they heard from another organisation. Stories that other people on the call tell stay out.
 
 - **One paragraph, roughly 60 to 120 words:** the situation, what happened, how it turned out, and the principle it shows. Keep only the details the lesson needs.
 - **The principle is one closing sentence**, no broader than this one story can support. It is your summary, so keep it modest.
 - **Only real events.** "Imagine an organisation that..." is a hypothetical. If it is useful, it belongs under wisdom or ideas.
 - **Don't fill gaps.** If the call didn't say how it turned out, say so ("It was still unresolved at the time of the call") rather than inventing an ending.
-- **Something that happened on the call counts,** such as a live demo that changed someone's mind. Credit it "Happened on the call".
+- **Something the user did on the call counts,** such as a live demo they gave that changed someone's mind. Credit it "Happened on the call".
 - **One story per case study.** Don't merge two.
 
 **Don't say the same thing twice.** If a case study's closing principle already states a piece of advice, don't also write that advice up as a wisdom item. Keep the case study, because a story is harder to come by than advice. Write a separate wisdom item only if it adds something the story doesn't, such as the steps to follow.
@@ -145,7 +150,7 @@ Always do this step when the user can answer. On a scheduled run, follow "Runnin
 - the draft document
 - a numbered list of anything you left out or blurred in Step 4, so they can put back anything that was fine
 - every item marked "Check before saving"
-- one line naming anything you cut in Step 3 that they might expect to see, so they can ask for it back
+- one line naming anything you cut in Step 3 that they might expect to see, so they can ask for it back. If most of the advice on the call came from someone else, say so in that line, so the user knows why the document is short. Don't offer to put other people's points back in.
 
 Then ask, in one short question, whether anything else needs redacting before you save it. Make the changes they ask for. If the changes were big, show the changed items again. Save only once they say it is fine, and remove the "Check before saving" lines before you do.
 
@@ -179,7 +184,7 @@ Source: <where the transcript is, or "pasted into chat on <date>">
 
 > "<Optional short quote, if someone put it memorably>"
 
-*<The user's name, or the speaker's role>, <timestamp>, with <a second person's role> at <timestamp> if the item draws on both*
+*<The user's name>, <timestamp>*
 
 Also said in <earlier document>.
 
@@ -189,7 +194,7 @@ Also said in <earlier document>.
 
 <Two or three sentences, under about 70 words: what it is, why someone thought it might work, and what is still open.>
 
-*Raised by <the user's name, or the speaker's role>, <timestamp>. Agreed to try it.*
+*Raised by <the user's name>, <timestamp>. Agreed to try it.*
 
 ## Case studies
 
@@ -197,7 +202,7 @@ Also said in <earlier document>.
 
 <One paragraph, 60 to 120 words, ending on the principle it shows.>
 
-*Told by <the user's name, or the speaker's role>, <timestamp>*
+*Told by <the user's name>, <timestamp>*
 ```
 
 - Include the "Source" line only if just the user can read the bank. Otherwise leave it out, because a link or recording title usually shows who was on the call.
@@ -226,7 +231,7 @@ Some people want this to run by itself after their meetings. Nobody can answer S
 
 For requests like "this week's one-to-ones" or "all my calls in September":
 
-1. List the meetings in the range as a numbered list, each with a one-line guess at whether it is worth mining. Status meetings and logistics calls usually aren't. Leave out anything that matches "Meetings to skip". If there are more than five, ask the user to confirm the list before you start, because each transcript is long and costly to read.
+1. List the meetings in the range as a numbered list, each with a one-line guess at whether it is worth mining. Status meetings, logistics calls and calls where the user was the one being advised usually aren't. Leave out anything that matches "Meetings to skip". If there are more than five, ask the user to confirm the list before you start, because each transcript is long and costly to read.
 2. If your agent can run sub-agents, give each meeting to its own sub-agent with this skill and that one meeting, so the transcripts don't crowd your context. Ask each to do Steps 1 to 5 and hand back its draft without saving anything. Otherwise do them one at a time.
 3. Read every draft and check it against Steps 3 and 4. Then do Step 6 once for the whole batch: show all the drafts and ask one question about redactions.
 
