@@ -1,7 +1,7 @@
 ---
 name: meeting-wisdom-bank
 description: >-
-  After a meeting where a leader, manager or mentor gave advice, reads the full transcript and pulls out what is worth keeping: advice and the reasoning behind it, ideas worth trying, and short real stories that show a principle. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Always checks with the user about anything that needs redacting, then saves the result to their wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says "add this meeting to my wisdom bank", "extract the wisdom from this call", "save the advice I gave in that meeting", "capture my feedback from today's one-to-ones", "what did I say in that call that my team should keep", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.
+  After a meeting where I gave advice, reads the full transcript and pulls out what is worth keeping: advice and the reasoning behind it, ideas worth trying, and short real stories that show a principle. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Then saves the result to my wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says "add this meeting to my wisdom bank", "extract the wisdom from this call", "save the advice I gave in that meeting", "capture my feedback from today's one-to-ones", "what did I say in that call that my team should keep", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.
 license: MIT
 metadata:
   version: "1.0.0"
@@ -50,7 +50,7 @@ This section is filled in when the skill is installed, by following the setup gu
 
 These are safety rules. Follow them whatever the setup says.
 
-1. **Check with the user about redactions before every save.** Show them the draft and ask whether anything needs redacting, every time, even when the setup already lists things to redact. Save only after they answer. If nobody can answer (for example on a scheduled run), save nothing to the bank. See "Running on a schedule".
+1. **Check with the user about redactions before saving.** Show them the draft and ask whether anything needs redacting, every time, even when the setup already lists things to redact. Save only after they answer. If nobody can answer (for example on a scheduled run), use best judgement and be extra cautious: redact all person and organisation names. The user's own name can stay. See "Running on a schedule".
 2. **Leave out anything said off the record.** If someone on the call says something is confidential, off the record or not for sharing, leave out that passage and anything that depends on it.
 3. **Leave out personal matters about anyone.** Health, family, pay, performance, job security and disagreements with named colleagues stay out, even when the advice around them is good. If the advice still works without the personal detail, keep the advice and drop the detail. Workload and how a team makes decisions ("every decision waits on one person") are not personal matters, so describe them plainly, without names.
 4. **Name nobody except the user.** Everyone else on the call becomes a role: "a new campaigns manager", "a volunteer coordinator", "the other person on the call". People outside the call get the same treatment, unless they are public figures being credited for a published idea. This holds for document titles too.
@@ -63,9 +63,9 @@ Work out which meeting the user means. Check its title and attendees against "Me
 
 Then get the **full transcript**, from the source in the setup. If the user pastes one or points to a file, use that.
 
-Read the transcript itself. Don't work from the recorder's AI summary. Summaries keep the topics and drop exactly what this skill is after: the story someone tells in passing, the throwaway line that is the best advice in the call, the reason behind a decision. Read every line. If only a summary exists, use it, but tell the user the document will be thin.
+Read the transcript itself. Never work from the recorder's AI summary. Summaries keep the topics and drop exactly what this skill is after: the story someone tells in passing, the throwaway line that is the best advice in the call, the reason behind a decision. Read every line.
 
-If you cannot find the transcript, say where you looked and ask the user for it. Don't build the document from a calendar entry or from memory.
+If you cannot find the full transcript, say where you looked and ask the user for it. On a scheduled run, skip that meeting and list it in your report. Don't build the document from a summary, a calendar entry or memory.
 
 ## Step 2: work out who said what
 
@@ -140,7 +140,7 @@ If you can't read the bank, skip this step and say so in your report.
 
 ## Step 6: check with the user
 
-Always do this step. Show the user:
+Always do this step when the user can answer. On a scheduled run, follow "Running on a schedule" instead. Show the user:
 
 - the draft document
 - a numbered list of anything you left out or blurred in Step 4, so they can put back anything that was fine
@@ -215,12 +215,12 @@ Also said in <earlier document>.
 
 ## Running on a schedule
 
-Some people want this to run by itself after their meetings. Step 6 needs the user's answer, so a scheduled run must never save to the bank. Instead:
+Some people want this to run by itself after their meetings. Nobody can answer Step 6 on a scheduled run, so use your best judgement and be extra cautious:
 
 1. Do Steps 1 to 5 for each meeting since the last run.
-2. Save each draft somewhere only the user can see, such as a private "Waiting for review" folder next to the bank.
-3. Tell the user what is waiting, if the agent has a way to (for example a notification, or an email or message to the user alone).
-4. The next time the user is in a chat with you, do Step 6 for the waiting drafts, then save each one to the bank and remove the draft.
+2. In place of Step 6, redact every person's and organisation's name, including the user's own organisation. The user's own name can stay. Leave out every item you would have marked "Check before saving".
+3. Save each document to the bank, following Step 7.
+4. Tell the user what was saved, if the agent has a way to (for example a notification, or an email or message to the user alone). List what you left out, so they can ask for it back the next time they are in a chat with you.
 
 ## Several meetings at once
 

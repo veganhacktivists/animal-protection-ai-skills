@@ -34,7 +34,7 @@ When your agent installs the skill, it asks you a few questions and writes your 
 4. Kinds of meeting that should never go in the bank at all, such as HR conversations or board meetings.
 5. Where your transcripts come from, how your name appears in them, and which name the bank should use for you.
 
-Every time the skill runs, it also shows you the draft and asks whether anything else needs redacting. Nothing is saved until you answer. Some rules are always on and can't be switched off: nobody except you is named, personal matters (health, pay, performance, conflicts) stay out, anything said off the record is left out, and it only saves where you told it to.
+When you run the skill yourself, it also shows you the draft and asks whether anything else needs redacting. Nothing is saved until you answer. When it runs on a schedule it can't ask you, so it is extra cautious: it removes every person's and organisation's name except yours, and leaves out anything it is unsure about. Some rules are always on and can't be switched off: nobody except you is named, personal matters (health, pay, performance, conflicts) stay out, anything said off the record is left out, and it only saves where you told it to.
 
 ## Checking it works
 
@@ -69,5 +69,5 @@ Answers from the bank are an AI's reading of what you said. Ask your team to tre
 
    Don't ask whether to check with them before saving, or about the other rules under "Rules that are always on". Those are safety rules and are already built into the skill.
 7. Fill in every line of "Your user's setup" in your installed copy of `SKILL.md` with their answers.
-8. If they want it to run by itself after meetings, create a scheduled task that follows "Running on a schedule" in `SKILL.md`. Once a day in the early evening usually works. Tell them it only prepares drafts: nothing reaches the bank until they have checked it.
+8. If they want it to run by itself after meetings, create a scheduled task that follows "Running on a schedule" in `SKILL.md`. Once a day in the early evening usually works. Tell them a scheduled run can't check with them, so it saves straight to the bank after removing every person's and organisation's name except theirs, and leaves out anything it is unsure about.
 9. Offer to run the request under "Checking it works" on one of their recent meetings.
