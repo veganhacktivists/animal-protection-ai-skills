@@ -67,6 +67,19 @@
       "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/graph-advisor"
     },
     {
+      "name": "meeting-wisdom-bank",
+      "description": "After a meeting where I gave advice, reads the full transcript and pulls out what is worth keeping: advice and the reasoning behind it, ideas worth trying, and short real stories that show a principle. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Then saves the result to my wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says \"add this meeting to my wisdom bank\", \"extract the wisdom from this call\", \"save the advice I gave in that meeting\", \"capture my feedback from today's one-to-ones\", \"what did I say in that call that my team should keep\", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.",
+      "version": "1.0.0",
+      "author": "Richie (Thomas Manandhar-Richardson)",
+      "author_org": "Vegan Hacktivists",
+      "last_verified": "2026-11-03",
+      "verified_on": "Claude Code",
+      "compatibility": "",
+      "requirements": "- **A meeting transcript.** The full transcript, from a meeting recorder (for example Fathom, Otter or Fireflies, or the transcripts Zoom, Google Meet and Microsoft Teams make), from a file, or pasted into the chat. If the agent has a connector to the user's recorder, it fetches the transcript itself. - **Somewhere to save the bank,** in one of these formats: - Markdown files: an agent that can write files on the user's computer, such as Claude Code, Claude Cowork, Codex, Gemini CLI or GitHub Copilot. - Word documents: an agent that can create Word files. In the Claude app, turn on file creation. Coding agents need Pandoc or Python installed. - Google Docs: a Google Drive connector that can create files. - Notion pages: a Notion connector. - **Setup.** \"Your user's setup\" below has to be filled in before the first run. The setup guide (`README.md` in this folder) explains how.",
+      "path": "skills/meeting-wisdom-bank",
+      "url": "https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/meeting-wisdom-bank"
+    },
+    {
       "name": "nonprofit-ai-work-explorer",
       "description": "Interview one nonprofit staff member, volunteer, manager, or leader about AI in their own work, their team, or their organization. Explore a range of opportunities or work through a specific task. End with a grounded shortlist, a small experiment, or a reason to wait, without assuming the participant speaks for everyone or has authority to implement a change.",
       "version": "1.0.0",

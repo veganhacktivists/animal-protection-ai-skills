@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-7 skills.
+8 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -52,6 +52,15 @@ Critiques data visualisations and suggests improvements to communicate their goa
 - **Version:** 1.0.0
 - **Last verified:** 2026-09-07 on Claude Code, Claude Cowork
 - **Requirements:** None. Works with the agent alone. The agent needs to be able to see the chart, so paste the image or the chart file into the conversation. If the agent cannot view images, describe the chart in words or share the data and the plotting code.
+
+## [meeting-wisdom-bank](skills/meeting-wisdom-bank/SKILL.md)
+
+After a meeting where I gave advice, reads the full transcript and pulls out what is worth keeping: advice and the reasoning behind it, ideas worth trying, and short real stories that show a principle. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Then saves the result to my wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says "add this meeting to my wisdom bank", "extract the wisdom from this call", "save the advice I gave in that meeting", "capture my feedback from today's one-to-ones", "what did I say in that call that my team should keep", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-11-03 on Claude Code
+- **Requirements:** - **A meeting transcript.** The full transcript, from a meeting recorder (for example Fathom, Otter or Fireflies, or the transcripts Zoom, Google Meet and Microsoft Teams make), from a file, or pasted into the chat. If the agent has a connector to the user's recorder, it fetches the transcript itself. - **Somewhere to save the bank,** in one of these formats: - Markdown files: an agent that can write files on the user's computer, such as Claude Code, Claude Cowork, Codex, Gemini CLI or GitHub Copilot. - Word documents: an agent that can create Word files. In the Claude app, turn on file creation. Coding agents need Pandoc or Python installed. - Google Docs: a Google Drive connector that can create files. - Notion pages: a Notion connector. - **Setup.** "Your user's setup" below has to be filled in before the first run. The setup guide (`README.md` in this folder) explains how.
 
 ## [nonprofit-ai-work-explorer](skills/nonprofit-ai-work-explorer/SKILL.md)
 
