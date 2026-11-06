@@ -60,7 +60,7 @@
     },
     {
       "name": "meeting-wisdom-bank",
-      "description": "After meetings where you give advice, saves the advice, ideas and stories worth keeping to a wisdom bank your team and their AI can look things up in",
+      "description": "After meetings where you give advice, saves your own advice, ideas and stories worth keeping to a wisdom bank your team and their AI can look things up in",
       "source": "./",
       "strict": false,
       "skills": ["./skills/meeting-wisdom-bank"]

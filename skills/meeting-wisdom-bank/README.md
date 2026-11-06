@@ -1,6 +1,6 @@
 # Setting up meeting-wisdom-bank
 
-After a meeting where you give advice, this skill reads the transcript and pulls out the advice, judgement calls, ideas and stories worth keeping. It checks with you about anything that needs redacting, then saves them to your wisdom bank: a set of documents, one per meeting, that your team and their AI agents can look things up in. Over time the bank holds your judgement, so colleagues can ask their AI "what would you say about this?" instead of waiting for you.
+After a meeting where you give advice, this skill reads the transcript and pulls out your own advice, judgement calls, ideas and stories worth keeping. Other people's points stay out, so the bank holds only your judgement. It checks with you about anything that needs redacting, then saves them to your wisdom bank: a set of documents, one per meeting, that your team and their AI agents can look things up in. Over time the bank holds your judgement, so colleagues can ask their AI "what would you say about this?" instead of waiting for you.
 
 ## What you need first
 
@@ -38,9 +38,11 @@ When you run the skill yourself, it also shows you the draft and asks whether an
 
 ## Checking it works
 
+Pick a meeting where you were clearly the one giving advice, such as a feedback session, a mentoring one-to-one or a one-to-one with someone you manage. A call where you mostly listened gives a short or empty document. That is the right result, but it won't show you much.
+
 Ask your agent: "Add my last meeting to my wisdom bank", or paste in a transcript and ask "Extract the wisdom from this call for my wisdom bank".
 
-A good result is a short draft with three sections (Wisdom, Interesting ideas, Case studies). Each item has its own heading and makes sense to someone who wasn't on the call, and nobody is named except you. The agent lists anything it left out or blurred, then asks whether anything else needs redacting before it saves.
+A good result is a short draft with three sections (Wisdom, Interesting ideas, Case studies). Every item is something you said. Each has its own heading and makes sense to someone who wasn't on the call, and nobody is named except you. The agent lists anything it left out or blurred, then asks whether anything else needs redacting before it saves.
 
 ## How your team uses the bank
 
@@ -70,4 +72,4 @@ Answers from the bank are an AI's reading of what you said. Ask your team to tre
    Don't ask whether to check with them before saving, or about the other rules under "Rules that are always on". Those are safety rules and are already built into the skill.
 7. Fill in every line of "Your user's setup" in your installed copy of `SKILL.md` with their answers.
 8. If they want it to run by itself after meetings, create a scheduled task that follows "Running on a schedule" in `SKILL.md`. Once a day in the early evening usually works. Tell them a scheduled run can't check with them, so it saves straight to the bank after removing every person's and organisation's name except theirs, and leaves out anything it is unsure about.
-9. Offer to run the request under "Checking it works" on one of their recent meetings.
+9. Offer to run the request under "Checking it works" on a recent meeting where they were clearly the one giving advice.
