@@ -4,7 +4,7 @@ description: >-
   After a meeting where I gave advice, reads the full transcript and pulls out what is worth keeping from what I said: my advice and the reasoning behind it, ideas I raised, and short real stories I told that show a principle. Other people's points stay out. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Then saves the result to my wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says "add this meeting to my wisdom bank", "extract the wisdom from this call", "save the advice I gave in that meeting", "capture my feedback from today's one-to-ones", "what did I say in that call that my team should keep", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
   last-verified: "2026-11-03"
@@ -75,9 +75,13 @@ Sort out the speakers before you pick anything out. The user may appear under th
 
 You need this because the bank holds only what the user said. If you get the speakers wrong, the bank fills up with someone else's views under the user's name. If you can't tell which speaker is the user, ask. On a scheduled run, skip the meeting and list it in your report.
 
+Sometimes you can tell who the user is for most of the call but not for every line. For example, a stretch partway through may be labelled "Speaker 3", or two people may share one label. If something worth keeping comes from lines like these, don't guess who said it. Draft the item, add a line under it, `Unsure who said this: <timestamp>`, and ask the user about it in Step 6. On a scheduled run, leave these items out and list them in your report.
+
 ## Step 3: pick out the material
 
 **Only what the user said.** Every item must be the user's own: advice they gave, an idea they raised or a story they told. Leave out other people's advice, ideas and stories, however good. Other people's words can appear only as the context the user's point needs, for example the question the user was answering ("Asked whether to delay the launch, ..."). If someone else made a point and the user agreed and gave their own reason, that reason is the user's, so it can go in. A bare "yes" or "good idea" is not enough.
+
+**A pointed question can count as advice.** Some people advise mostly by asking questions. A question from the user counts as their advice when it clearly points to an answer, for example "Have you asked the funder before building it?". Write the item as the view the question points to, and quote the question, so readers can see how the user put it and the item doesn't sound firmer than it was. Open questions that don't point anywhere, such as "What do you think?", don't count.
 
 A call where the user mostly listened, or was the one being advised, will give little or nothing. That is the right result. Don't pad it with other people's points.
 
@@ -104,7 +108,7 @@ Advice, feedback and judgement calls that would help a colleague. The test: **wo
 
 ### Interesting ideas
 
-Speculation, "what if we...", experiments to run, tools someone could build and predictions, when the user raised them. This is the half-formed material. In two or three sentences (under about 70 words), say what the idea is, why someone thought it might work and what is still open. If they agreed to actually try it, say so.
+Speculation, "what if we...", experiments to run, tools someone could build and predictions, when the user raised them. This is the half-formed material. In two or three sentences (under about 70 words), say what the idea is, why the user thought it might work and what is still open. If anyone on the call agreed to try it, say who, describing them by role as usual.
 
 ### Case studies
 
@@ -150,9 +154,10 @@ Always do this step when the user can answer. On a scheduled run, follow "Runnin
 - the draft document
 - a numbered list of anything you left out or blurred in Step 4, so they can put back anything that was fine
 - every item marked "Check before saving"
+- every item marked "Unsure who said this". Ask whether each one was the user's, and offer to leave them all out instead, so the user can skip checking them. Keep only the ones they confirm.
 - one line naming anything you cut in Step 3 that they might expect to see, so they can ask for it back. If most of the advice on the call came from someone else, say so in that line, so the user knows why the document is short. Don't offer to put other people's points back in.
 
-Then ask, in one short question, whether anything else needs redacting before you save it. Make the changes they ask for. If the changes were big, show the changed items again. Save only once they say it is fine, and remove the "Check before saving" lines before you do.
+Then ask, in one short question, whether anything else needs redacting before you save it. Make the changes they ask for. If the changes were big, show the changed items again. Save only once they say it is fine, and remove the "Check before saving" and "Unsure who said this" lines before you do.
 
 If the user asks you to redact the same kind of thing that they would want gone from every meeting, offer to add it to "Always redact" in "Your user's setup".
 
@@ -182,7 +187,7 @@ Source: <where the transcript is, or "pasted into chat on <date>">
 
 <Two or three sentences, under about 80 words: why it works and how to do it.>
 
-> "<Optional short quote, if someone put it memorably>"
+> "<Optional short quote, if the user put it memorably or advised by asking a question>"
 
 *<The user's name>, <timestamp>*
 
@@ -192,9 +197,9 @@ Also said in <earlier document>.
 
 ### <The idea in a few words>
 
-<Two or three sentences, under about 70 words: what it is, why someone thought it might work, and what is still open.>
+<Two or three sentences, under about 70 words: what it is, why the user thought it might work, and what is still open.>
 
-*Raised by <the user's name>, <timestamp>. Agreed to try it.*
+*Raised by <the user's name>, <timestamp>. <Only if someone agreed to try it: who, for example "The other person on the call agreed to try it.">*
 
 ## Case studies
 
@@ -223,7 +228,7 @@ Also said in <earlier document>.
 Some people want this to run by itself after their meetings. Nobody can answer Step 6 on a scheduled run, so use your best judgement and be extra cautious:
 
 1. Do Steps 1 to 5 for each meeting since the last run.
-2. In place of Step 6, redact every person's and organisation's name, including the user's own organisation. The user's own name can stay. Leave out every item you would have marked "Check before saving".
+2. In place of Step 6, redact every person's and organisation's name, including the user's own organisation. The user's own name can stay. Leave out every item you would have marked "Check before saving" or "Unsure who said this".
 3. Save each document to the bank, following Step 7.
 4. Tell the user what was saved, if the agent has a way to (for example a notification, or an email or message to the user alone). List what you left out, so they can ask for it back the next time they are in a chat with you.
 
@@ -233,7 +238,7 @@ For requests like "this week's one-to-ones" or "all my calls in September":
 
 1. List the meetings in the range as a numbered list, each with a one-line guess at whether it is worth mining. Status meetings, logistics calls and calls where the user was the one being advised usually aren't. Leave out anything that matches "Meetings to skip". If there are more than five, ask the user to confirm the list before you start, because each transcript is long and costly to read.
 2. If your agent can run sub-agents, give each meeting to its own sub-agent with this skill and that one meeting, so the transcripts don't crowd your context. Ask each to do Steps 1 to 5 and hand back its draft without saving anything. Otherwise do them one at a time.
-3. Read every draft and check it against Steps 3 and 4. Then do Step 6 once for the whole batch: show all the drafts and ask one question about redactions.
+3. Read every draft and check it against Steps 3 and 4. Then do Step 6 once for the whole batch: show all the drafts and ask one question about redactions, plus one about any items marked "Unsure who said this".
 
 ## Report back
 
