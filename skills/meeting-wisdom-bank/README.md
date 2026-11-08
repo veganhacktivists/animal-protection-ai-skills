@@ -4,25 +4,21 @@ After a meeting where you give advice, this skill reads the transcript and pulls
 
 ## What you need first
 
-- **Meeting transcripts.** A meeting recorder that makes full transcripts, such as Fathom, Otter or Fireflies, or the transcripts Zoom, Google Meet and Microsoft Teams make. If your AI agent can connect to your recorder, it fetches transcripts itself. In Claude or ChatGPT, add your recorder's connector if it has one. Otherwise, download the transcript or paste it into the chat.
+- **Meeting transcripts.** A meeting recorder that makes full transcripts, such as Fathom, Otter or Fireflies, or the transcripts Zoom, Google Meet and Microsoft Teams make. If your AI agent can connect to your recorder, it fetches transcripts itself. In Claude Cowork or ChatGPT Work, add your recorder's connector if it has one. Otherwise, download the transcript or paste it into the chat.
 - **Somewhere for the bank,** in the format you choose during setup:
   - Markdown files: an agent that can write to a folder on your computer, such as Claude Code, Claude Cowork or Codex.
-  - Word documents: an agent that can create Word files. In the Claude app, turn on file creation. Coding agents such as Claude Code or Codex need Pandoc or Python installed.
-  - Google Docs: a Google Drive connector that can create files. In Claude, connect Google Drive.
-  - Notion pages: a Notion connector. In Claude, connect Notion.
+  - Word documents: an agent that can create Word files. If your agent has a setting for creating files, make sure it is on. Coding agents such as Claude Code or Codex need Pandoc or Python installed.
+  - Google Docs: a Google Drive connector that can create files. In Claude Cowork, connect Google Drive.
+  - Notion pages: a Notion connector. In Claude Cowork, connect Notion.
 
 ## Installing it
 
-The easiest way is to give your AI agent the link to this folder and ask it to install the skill. Your agent can usually do this for you.
-
-To install it by hand:
-
-- **Claude Code:** run `/plugin marketplace add veganhacktivists/animal-protection-ai-skills`, then `/plugin install meeting-wisdom-bank@animal-protection-ai-skills`. Or copy this folder into `~/.claude/skills/`.
-- **Claude Cowork and claude.ai:** download the `meeting-wisdom-bank` zip from the [latest release](https://github.com/veganhacktivists/animal-protection-ai-skills/releases/latest) and upload it in Settings, under Capabilities, then Skills.
-- **OpenAI Codex:** copy this folder into `~/.agents/skills/`.
+- **Claude Code and OpenAI Codex:** give your agent the link to this folder, https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/meeting-wisdom-bank, and ask it to install the skill. It downloads the folder and does the rest.
+- **Claude Cowork:** download the `meeting-wisdom-bank` zip from the [latest release](https://github.com/veganhacktivists/animal-protection-ai-skills/releases/latest) and upload it in Settings, under Capabilities, then Skills.
+- **ChatGPT Work:** make a skill through ChatGPT's own skill-creation flow, giving it the link to this folder or the contents of `SKILL.md`. Or paste the contents of `SKILL.md` into a Project.
 - **Microsoft 365 Copilot:** upload the zip from the latest release under Customize, then Upload skill.
 
-If your AI tool cannot install skills, such as the plain ChatGPT web app, paste the contents of `SKILL.md` into a project's instructions or at the start of a chat, and fill in its "Your user's setup" section by hand. This works less well: the AI only has the instructions in that one chat or project.
+If your AI tool can't install skills, paste the contents of `SKILL.md` at the start of a chat, and fill in its "Your user's setup" section by hand. This works less well, because the AI only has the instructions in that one chat.
 
 ## What the setup asks you
 
@@ -55,14 +51,18 @@ Answers from the bank are an AI's reading of what you said. Ask your team to tre
 1. Read `SKILL.md` and every other file in this folder. Tell the user in two or three sentences what the skill will do.
 2. Check "What you need first" against what you can see. Ask the user before connecting an account or installing a tool.
 3. Install the whole folder, not only `SKILL.md`, in your skills location. If the user asked for changes, install the changed copy and tell them what you changed.
-4. Do not change anything outside your skills location without asking. Creating the bank's folder or page, and the scheduled task in step 8, are the only exceptions, and only once the user has asked for them.
-5. **Look before you ask.** Work these out yourself first, then report what you found:
+4. Do not change anything outside your skills location without asking. Creating the bank's folder or page, and the scheduled task in the next section, are the only exceptions, and only once the user has asked for them.
+5. The skill needs setting up before its first run. Follow the next section.
+
+## For AI agents setting up the wisdom bank
+
+1. **Look before you ask.** Work these out yourself first, then report what you found:
    - Which meeting recorders you can reach. Check your own tools first, and only ask about a recorder you can't see.
    - Which places you can save to: a folder on the user's computer, Google Drive, Notion, or none of these.
    - Whether you can create Word documents.
    - The user's name, from your account details or their recent transcripts, and how it appears in those transcripts.
    - Which spelling they use (British or American English, or another language), from their own writing. Don't ask them about it.
-6. **Ask.** Cover these, adapting the wording but keeping the intent. Recommend an answer wherever you can.
+2. **Ask.** Cover these, adapting the wording but keeping the intent. Recommend an answer wherever you can.
    - What form should each document take: a local Markdown file, a Word document, a Google Doc or a Notion page? Only offer the ones you can actually create. If they are unsure, recommend the one their team already uses.
    - Where should it be saved, and who can open that place: only them, their team, or people outside their organisation too? Each meeting becomes its own document there. If the folder or page doesn't exist yet, offer to create it.
    - What kinds of things, if any, would they want redacted from every document? Suggest examples that fit their work, such as donor or funder names, details of investigations, legal matters, partner or member organisations' confidential plans, unreleased campaigns, or figures about money or staff. "Nothing beyond the built-in rules" is a fine answer.
@@ -70,6 +70,6 @@ Answers from the bank are an AI's reading of what you said. Ask your team to tre
    - Where do their transcripts come from, if you couldn't tell? Does their name appear in them any other way, and which name should the bank use for them?
 
    Don't ask whether to check with them before saving, or about the other rules under "Rules that are always on". Those are safety rules and are already built into the skill.
-7. Fill in every line of "Your user's setup" in your installed copy of `SKILL.md` with their answers.
-8. If they want it to run by itself after meetings, create a scheduled task that follows "Running on a schedule" in `SKILL.md`. Once a day in the early evening usually works. Tell them a scheduled run can't check with them, so it saves straight to the bank after removing every person's and organisation's name except theirs, and leaves out anything it is unsure about.
-9. Offer to run the request under "Checking it works" on a recent meeting where they were clearly the one giving advice.
+3. Fill in every line of "Your user's setup" in your installed copy of `SKILL.md` with their answers.
+4. If they want it to run by itself after meetings, create a scheduled task that follows "Running on a schedule" in `SKILL.md`. Once a day in the early evening usually works. Tell them a scheduled run can't check with them, so it saves straight to the bank after removing every person's and organisation's name except theirs, and leaves out anything it is unsure about.
+5. Offer to run the request under "Checking it works" on a recent meeting where they were clearly the one giving advice.

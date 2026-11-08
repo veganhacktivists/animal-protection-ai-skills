@@ -8,7 +8,7 @@ Maintained by the [Vegan Hacktivists](https://veganhacktivists.org/) AI Services
 
 A skill is a folder containing a `SKILL.md` file. That file is a set of instructions an AI agent reads when it decides the skill is relevant to what you have asked. Skills teach an agent how to do a specific job the way an experienced person would do it: critique a chart, strip AI tells out of a draft, catch you up on an old conversation.
 
-The format is the open [Agent Skills standard](https://agentskills.io/), so the same folder works in Claude (Code, Cowork and claude.ai), OpenAI Codex, Gemini CLI, GitHub Copilot and Microsoft 365 Copilot. See [Installing a skill](#installing-a-skill) for the details per agent.
+The format is the open [Agent Skills standard](https://agentskills.io/), so the same folder works in Claude Code, Claude Cowork, OpenAI Codex, Gemini CLI, GitHub Copilot and Microsoft 365 Copilot. ChatGPT Work can use it too, through its own skill-creation flow. See [Installing a skill](#installing-a-skill) for the details per agent.
 
 A few entries under [`setup-skills/`](setup-skills/) are a different shape: not something you install, but a single file written for your agent to read and act on directly. It interviews you and builds a personal version wired to your own accounts, because the value only comes from being wired to your specific channels and tools. Point your agent at one with: "Read `setup-skills/<file>` and set this up for me." The [skills index](INDEX.md) lists these separately from the installable skills.
 
@@ -29,28 +29,19 @@ Start with [`INDEX.md`](INDEX.md). It lists every skill with a one-line descript
 
 ## Installing a skill
 
-Every skill lives at `skills/<skill-name>/`. Your agent can usually do this for you if you ask. If you would rather do it yourself:
+Every skill lives at `skills/<skill-name>/`. If a skill's folder has a `README.md`, that is its setup guide. It says what the skill needs, how to install it, how to check it works, and any setup steps, with a section for your AI agent. GitHub shows it on the skill's folder page.
 
-**Claude Code**
+**Claude Code and OpenAI Codex**
 
-```
-/plugin marketplace add veganhacktivists/animal-protection-ai-skills
-/plugin install ai-smell@animal-protection-ai-skills
-```
+Give your agent the link to the skill's folder, for example https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-smell, and ask it to install the skill. It downloads the folder and does the rest.
 
-Or copy the skill folder into `~/.claude/skills/` (all projects) or `.claude/skills/` (one project).
+**Claude Cowork**
 
-**Claude Cowork and claude.ai**
-
-Download the skill folder as a zip (each release on the [Releases page](https://github.com/veganhacktivists/animal-protection-ai-skills/releases) has one zip per skill) and upload it in Settings under Capabilities, then Skills.
-
-**OpenAI Codex**
-
-Copy the skill folder into `~/.agents/skills/` (all projects) or `.agents/skills/` in your repo. This works in the Codex desktop app, command line tool and IDE extension.
+Download the skill's zip from the [latest release](https://github.com/veganhacktivists/animal-protection-ai-skills/releases/latest) (each release has one zip per skill) and upload it in Settings, under Capabilities, then Skills.
 
 **ChatGPT Work**
 
-The plain ChatGPT web app cannot install a skill folder from this repository directly. ChatGPT Work can use skills through its own skill-creation flow, or by pasting a skill's `SKILL.md` content into a Project or Custom Instructions.
+Make a skill through ChatGPT's own skill-creation flow, giving it the link to the skill's folder or the contents of its `SKILL.md`. Or paste the contents of `SKILL.md` into a Project.
 
 **Gemini CLI**
 
@@ -75,6 +66,10 @@ The community [`skills` installer](https://skills.sh) knows the install path for
 ```
 npx skills add veganhacktivists/animal-protection-ai-skills
 ```
+
+**If your AI tool can't install skills**
+
+Paste the contents of the skill's `SKILL.md` at the start of a chat. This works less well, because the AI only has the instructions in that one chat.
 
 ## Submitting a skill
 
