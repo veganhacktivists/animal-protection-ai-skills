@@ -87,7 +87,7 @@ Finds resources in the Vegan Hacktivists (VH) AI Resource Library that help with
 - **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
 - **Version:** 1.0.0
 - **Last verified:** 2026-11-08 on Claude Code
-- **Requirements:** - **Web access.** The agent must be able to open a web page, or at least search the web. Most agents can. If yours has a web search or web access setting, it needs to be on. - **Nothing else for searching.** No account, key or connector. - **For the weekly email only:** the agent must be able to read the user's past chats, run a task on a schedule, and send the user an email (or notify them some other way). Many agents can't do all three. The setup steps check each one before anything is created.
+- **Requirements:** - **Web access.** The agent must be able to open a web page, or at least search the web. Most agents can. If yours has a web search or web access setting, it needs to be on. - **Nothing else for searching.** No account, key or connector. - **For the weekly email only:** the agent must be able to read the user's past chats, run a task on a schedule, and send the user an email (or notify them some other way).
 
 ## Setup skills
 
