@@ -1,6 +1,6 @@
 # Setting up meeting-wisdom-bank
 
-After a meeting where you give advice, this skill reads the transcript and pulls out your own advice, judgement calls, ideas and stories worth keeping. Other people's points stay out, so the bank holds only your judgement. It checks with you about anything that needs redacting, then saves them to your wisdom bank: a set of documents, one per meeting, that your team and their AI agents can look things up in. Over time the bank holds your judgement, so colleagues can ask their AI "what would you say about this?" instead of waiting for you.
+After a meeting where you give advice, this skill reads the transcript and pulls out your own advice, judgement calls, ideas and stories worth keeping. Other people's points stay out, so the bank holds only your judgement. It checks with you about anything that needs redacting, and about anything it can't be sure you said, then saves them to your wisdom bank: a set of documents, one per meeting, that your team and their AI agents can look things up in. Over time the bank holds your judgement, so colleagues can ask their AI "what would you say about this?" instead of waiting for you.
 
 ## What you need first
 
