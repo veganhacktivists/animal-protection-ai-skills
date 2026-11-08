@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-8 skills.
+9 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -79,6 +79,15 @@ Interviews the person running a research project, round by round, until every de
 - **Version:** 1.0.0
 - **Last verified:** 2026-10-13 on Claude Code
 - **Requirements:** None. Works with the agent alone.
+
+## [vh-ai-resources](skills/vh-ai-resources/SKILL.md)
+
+Finds resources in the Vegan Hacktivists (VH) AI Resource Library that help with what I'm working on: how-tos, prompts, case studies, guides, trainings, tool overviews and FAQs about using AI in animal protection work. Searches the free public library at resources.veganhacktivists.org, opens the best matches, and says in a sentence or two how each one helps. Can also email me once a week with resources that fit what I worked on that week, found by looking back through my past chats, if I set that up. Use when someone says "find VH resources on X", "does Vegan Hacktivists have anything on...", "is there a VH guide or prompt for...", "what does the VH library say about...", "find me AI resources for my grant report", "set up the weekly VH resources email", or asks how an animal protection group can use AI for a task where a VH resource might help. Not for general web research, or for finding resources from other organisations.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-11-08 on Claude Code
+- **Requirements:** - **Web access.** The agent must be able to open a web page, or at least search the web. Most agents can. If yours has a web search or web access setting, it needs to be on. - **Nothing else for searching.** No account, key or connector. - **For the weekly email only:** the agent must be able to read the user's past chats, run a task on a schedule, and send the user an email (or notify them some other way). Many agents can't do all three. The setup steps check each one before anything is created.
 
 ## Setup skills
 

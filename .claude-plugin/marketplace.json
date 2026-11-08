@@ -66,6 +66,13 @@
       "skills": ["./skills/meeting-wisdom-bank"]
     },
     {
+      "name": "vh-ai-resources",
+      "description": "Finds Vegan Hacktivists AI Resource Library resources that help with what you're working on, with an optional weekly email based on your past chats",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/vh-ai-resources"]
+    },
+    {
       "name": "all-skills",
       "description": "Every installable skill in the Animal Protection Skills repo in one install",
       "source": "./",
@@ -78,7 +85,8 @@
         "./skills/ai-readiness-self-assessment",
         "./skills/research-grilling",
         "./skills/nonprofit-ai-work-explorer",
-        "./skills/meeting-wisdom-bank"
+        "./skills/meeting-wisdom-bank",
+        "./skills/vh-ai-resources"
       ]
     }
   ]
