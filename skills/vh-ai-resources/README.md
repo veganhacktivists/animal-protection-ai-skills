@@ -2,7 +2,7 @@
 
 This skill lets your AI agent search the free [Vegan Hacktivists AI Resource Library](https://resources.veganhacktivists.org) for you. Ask it something like "Does VH have anything on writing an AI policy?" It reads the library, opens the best matches, and tells you which few will help with what you're doing, and why. The library has how-tos, prompts, case studies, guides, trainings, tool overviews and FAQs for people doing animal protection work.
 
-It can also send you a weekly email of resources that fit what you worked on that week. That part is optional and needs more from your AI agent. See "Optional: a weekly email of resources" below.
+You can also set up an optional weekly email: a scheduled task that looks back over your chats, uses this skill to find resources that fit what you worked on, and emails them to you. It needs more from your AI agent. See "Optional: a weekly email of resources" below.
 
 ## What you need first
 
@@ -59,9 +59,11 @@ Before the first email goes out, your agent shows you what it would send. The em
 
 ## For AI agents setting up the weekly email
 
-Work through these steps in order. If one fails, stop and tell the user why before going further. If the user's message already answered one of the questions, don't ask it again. Whenever you look at the user's past chats, follow "Reading past chats" in `SKILL.md`, so nothing personal comes up.
+The weekly email is a scheduled task, not part of the skill. The task reads the user's past chats, uses the skill to find resources, and sends the email. You write its instructions in step 5.
 
-1. **Check that you can read the user's past chats.** The whole email depends on this, so don't assume it from your list of tools. Actually try it. Look for the user's chats from the last seven days, and name two or three pieces of work from them so the user can see it works. Where to look depends on the agent:
+Work through these steps in order. If one fails, stop and tell the user why before going further. If the user's message already answered one of the questions, don't ask it again.
+
+1. **Check that you can read the user's past chats.** The whole email depends on this, so don't assume it from your list of tools. Actually try it. Look for the user's chats from the last seven days, and name two or three pieces of work from them so the user can see it works. Read only what you need: the user's own messages are usually enough. Leave personal matters out (health, family, money, relationships, anything that isn't work). Where to look depends on the agent:
    - Some apps have a setting for searching or referencing past chats, often with the memory settings. If it is switched off, tell the user where to turn it on, then try again.
    - Coding agents usually save each session as a file on the user's computer. For example, Claude Code keeps them under `~/.claude/projects/`, and Codex under `~/.codex/sessions/`.
 
@@ -76,16 +78,22 @@ Work through these steps in order. If one fails, stop and tell the user why befo
    - Check where scheduled tasks run. A task that runs in the cloud can't read chats saved as files on the user's computer. A task that runs on the user's computer only runs while it is switched on. Tell the user which applies.
    - You need to be able to send the user an email, for example through an email connector. If you can only save drafts, or can't send email at all, say so. Some agents can notify the user themselves when a scheduled task finishes, by push notification or by email. Offer that if it is available.
 
-5. **Create the scheduled task** at the time they chose. Put the settings in the task's own instructions, so they travel with it:
+5. **Create the scheduled task** at the time they chose, with these instructions. Fill in everything in angle brackets, and keep the rest as it is. The task's instructions hold everything about reading chats and sending the email. Don't add any of it to the skill.
 
    ```text
-   Use the vh-ai-resources skill and follow "Running the weekly email".
-   Send to: <the address the user gave or confirmed>
-   Look back over: <7, 14 or 30 days, to match how often it runs>
-   Send it by: <email through which connector, or the scheduler's own notification>
+   Email me resources from the Vegan Hacktivists AI Resource Library that fit what I worked on recently.
+
+   1. Read my chats from the last <7, 14 or 30> days. Read only what you need to tell what I was working on: my own messages are usually enough, so skip tool output and pasted documents. If there are many chats, skim the first few messages of each. Skip scheduled and automated runs, including earlier runs of this task. Leave personal matters out completely: health, family, money, relationships and anything else that isn't work.
+   2. If you can't read any of my chats, don't send general resources. Send me two lines saying this run couldn't read my past chats, and stop.
+   3. List the pieces of work I was doing, a few words each. Leave out one-off quick questions.
+   4. Use the vh-ai-resources skill to find resources for those pieces of work. Keep up to five in total, and only ones that would genuinely help. If you can see this task's earlier runs, don't repeat a resource unless I'm still working on the same thing. Don't search my mailbox for this.
+   5. If nothing fits, send nothing, and say so in this run's output.
+   6. Write the email. Subject: "VH resources for your <week, fortnight or month>" plus one to three topics in general words, for example "VH resources for your week: grant reports and AI policy". Body: one short entry per resource, the title as a link, then one sentence on how it helps, naming the piece of work in a few words ("for the grant report you were drafting"). In the subject and the body: no quotes from my chats, no names of people, donors or partner organisations, and nothing confidential. End with one line saying I can change or stop these emails by asking my AI, and a link to https://resources.veganhacktivists.org.
+   7. Send it to <the address the user gave or confirmed> by <email through which connector, or the scheduler's own notification>, and to nobody else.
+   8. End this run's output with the titles you sent and any close matches you left out.
    ```
 
-   Don't store the settings by editing your copy of the skill. Updates replace it, and some apps don't let you edit installed skills.
+   Don't put these settings in your copy of the skill. Updates replace it, and some apps don't let you edit installed skills.
 
 6. **Test it.** First show the user, in this chat, the email you would send this week, and ask whether it looks right. Then run the scheduled task once straight away, the same way the schedule will run it, and check with the user that the email arrived. This matters because some agents can read past chats in a normal chat but not in a scheduled run. If the test run couldn't read past chats, give the user the same warning as in step 1.
 

@@ -67,7 +67,7 @@
     },
     {
       "name": "vh-ai-resources",
-      "description": "Finds Vegan Hacktivists AI Resource Library resources that help with what you're working on, with an optional weekly email based on your past chats",
+      "description": "Finds Vegan Hacktivists AI Resource Library resources that help with what you're working on, and says how each one helps",
       "source": "./",
       "strict": false,
       "skills": ["./skills/vh-ai-resources"]
