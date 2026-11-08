@@ -28,7 +28,7 @@ A good result names two to five resources from resources.veganhacktivists.org. E
 
 Once a week, your agent looks back through your chats, works out what you were working on, and emails you any library resources that would help. Weeks where nothing fits get no email.
 
-It only works if your agent can do three things:
+It only works if your agent can:
 
 1. **Read your past chats.** Without this, the email has nothing to base its picks on. Some AI tools have a setting for searching or referencing past chats, often with the memory settings.
 2. **Run a task on a schedule,** such as a scheduled task in Claude Cowork or ChatGPT Work.
@@ -86,7 +86,7 @@ Work through these steps in order. If one fails, stop and tell the user why befo
    1. Read my chats from the last <7, 14 or 30> days. Read only what you need to tell what I was working on: my own messages are usually enough, so skip tool output and pasted documents. If there are many chats, skim the first few messages of each. Skip scheduled and automated runs, including earlier runs of this task. Leave personal matters out completely: health, family, money, relationships and anything else that isn't work.
    2. If you can't read any of my chats, don't send general resources. Send me two lines saying this run couldn't read my past chats, and stop.
    3. List the pieces of work I was doing, a few words each. Leave out one-off quick questions.
-   4. Use the vh-ai-resources skill to find resources for those pieces of work. Keep up to five in total, and only ones that would genuinely help. If you can see this task's earlier runs, don't repeat a resource unless I'm still working on the same thing. Don't search my mailbox for this.
+   4. Use the vh-ai-resources skill to find resources for those pieces of work. Keep up to five in total, and only ones that would help with that work. If you can see this task's earlier runs, don't repeat a resource unless I'm still working on the same thing. Don't search my mailbox for this.
    5. If nothing fits, send nothing, and say so in this run's output.
    6. Write the email. Subject: "VH resources for your <week, fortnight or month>" plus one to three topics in general words, for example "VH resources for your week: grant reports and AI policy". Body: one short entry per resource, the title as a link, then one sentence on how it helps, naming the piece of work in a few words ("for the grant report you were drafting"). In the subject and the body: no quotes from my chats, no names of people, donors or partner organisations, and nothing confidential. End with one line saying I can change or stop these emails by asking my AI, and a link to https://resources.veganhacktivists.org.
    7. Send it to <the address the user gave or confirmed> by <email through which connector, or the scheduler's own notification>, and to nobody else.
@@ -97,4 +97,4 @@ Work through these steps in order. If one fails, stop and tell the user why befo
 
 6. **Test it.** First show the user, in this chat, the email you would send this week, and ask whether it looks right. Then run the scheduled task once straight away, the same way the schedule will run it, and check with the user that the email arrived. This matters because some agents can read past chats in a normal chat but not in a scheduled run. If the test run couldn't read past chats, give the user the same warning as in step 1.
 
-When it is set up, tell the user two things: weeks where nothing in the library fits get no email, and they can change or stop it at any time by asking you.
+When it is set up, tell the user that weeks where nothing in the library fits get no email, and that they can change or stop it at any time by asking you.
