@@ -4,10 +4,10 @@ description: >-
   After a meeting where I gave advice, reads the full transcript and pulls out what is worth keeping from what I said: my advice and the reasoning behind it, ideas I raised, and short real stories I told that show a principle. Other people's points stay out. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Then saves the result to my wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says "add this meeting to my wisdom bank", "extract the wisdom from this call", "save the advice I gave in that meeting", "capture my feedback from today's one-to-ones", "what did I say in that call that my team should keep", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.
 license: MIT
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
   author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
-  last-verified: "2026-11-03"
+  last-verified: "2026-11-08"
   verified-on: "Claude Code"
 ---
 
@@ -30,14 +30,14 @@ The readers are the user's colleagues and their AI agents, usually looking at on
 - **A meeting transcript.** The full transcript, from a meeting recorder (for example Fathom, Otter or Fireflies, or the transcripts Zoom, Google Meet and Microsoft Teams make), from a file, or pasted into the chat. If the agent has a connector to the user's recorder, it fetches the transcript itself.
 - **Somewhere to save the bank,** in one of these formats:
   - Markdown files: an agent that can write files on the user's computer, such as Claude Code, Claude Cowork, Codex, Gemini CLI or GitHub Copilot.
-  - Word documents: an agent that can create Word files. In the Claude app, turn on file creation. Coding agents need Pandoc or Python installed.
+  - Word documents: an agent that can create Word files. Coding agents need Pandoc or Python installed.
   - Google Docs: a Google Drive connector that can create files.
   - Notion pages: a Notion connector.
-- **Setup.** "Your user's setup" below has to be filled in before the first run. The setup guide (`README.md` in this folder) explains how.
+- **Setup.** "Your user's setup" below has to be filled in before the first run. The steps are in `README.md` in this folder.
 
 ## Your user's setup
 
-This section is filled in when the skill is installed, by following the setup guide (`README.md` in this folder). If anything below still says `<not set up yet>`, stop. Tell the user the skill needs setting up first, and offer to follow the "For AI agents installing this skill" steps in the setup guide.
+If anything below still says `<not set up yet>`, stop. Tell the user the skill needs setting up first, and offer to follow "For AI agents setting up the wisdom bank" in `README.md`.
 
 - **The user's name:** `<not set up yet>` (the name to use in the bank, plus every other name or email address transcripts use for them)
 - **Where transcripts come from:** `<not set up yet>`

@@ -2,7 +2,7 @@
 
 Every skill in this repo, generated from each skill's `SKILL.md` frontmatter by `tools/build_index.py`. Do not edit by hand.
 
-If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md` before recommending or installing a skill, and check the requirements against what the user has available. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.
+If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md`, and the skill's `README.md` if it has one, before recommending or installing a skill. The README holds the install and setup steps. Check the requirements against what the user has available. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
@@ -58,9 +58,9 @@ Critiques data visualisations and suggests improvements to communicate their goa
 After a meeting where I gave advice, reads the full transcript and pulls out what is worth keeping from what I said: my advice and the reasoning behind it, ideas I raised, and short real stories I told that show a principle. Other people's points stay out. Each item is rewritten so a colleague, or a colleague's AI agent, can use it without having been on the call. Then saves the result to my wisdom bank as a Markdown file, Word document, Google Doc or Notion page. Use whenever someone says "add this meeting to my wisdom bank", "extract the wisdom from this call", "save the advice I gave in that meeting", "capture my feedback from today's one-to-ones", "what did I say in that call that my team should keep", or points at a transcript and wants the good advice kept for their team. Not for meeting summaries, minutes or action items.
 
 - **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
-- **Version:** 1.2.0
-- **Last verified:** 2026-11-03 on Claude Code
-- **Requirements:** - **A meeting transcript.** The full transcript, from a meeting recorder (for example Fathom, Otter or Fireflies, or the transcripts Zoom, Google Meet and Microsoft Teams make), from a file, or pasted into the chat. If the agent has a connector to the user's recorder, it fetches the transcript itself. - **Somewhere to save the bank,** in one of these formats: - Markdown files: an agent that can write files on the user's computer, such as Claude Code, Claude Cowork, Codex, Gemini CLI or GitHub Copilot. - Word documents: an agent that can create Word files. In the Claude app, turn on file creation. Coding agents need Pandoc or Python installed. - Google Docs: a Google Drive connector that can create files. - Notion pages: a Notion connector. - **Setup.** "Your user's setup" below has to be filled in before the first run. The setup guide (`README.md` in this folder) explains how.
+- **Version:** 1.2.1
+- **Last verified:** 2026-11-08 on Claude Code
+- **Requirements:** - **A meeting transcript.** The full transcript, from a meeting recorder (for example Fathom, Otter or Fireflies, or the transcripts Zoom, Google Meet and Microsoft Teams make), from a file, or pasted into the chat. If the agent has a connector to the user's recorder, it fetches the transcript itself. - **Somewhere to save the bank,** in one of these formats: - Markdown files: an agent that can write files on the user's computer, such as Claude Code, Claude Cowork, Codex, Gemini CLI or GitHub Copilot. - Word documents: an agent that can create Word files. Coding agents need Pandoc or Python installed. - Google Docs: a Google Drive connector that can create files. - Notion pages: a Notion connector. - **Setup.** "Your user's setup" below has to be filled in before the first run. The steps are in `README.md` in this folder.
 
 ## [nonprofit-ai-work-explorer](skills/nonprofit-ai-work-explorer/SKILL.md)
 
@@ -76,8 +76,8 @@ Interview one nonprofit staff member, volunteer, manager, or leader about AI in 
 Interviews the person running a research project, round by round, until every decision about purpose, scope, data, evidence and methods is settled, then writes a research brief plus a list of questions to send the client. Use whenever someone is starting, scoping or kicking off a research project, has just won or been sent a proposal, RFP or project brief, or says "grill me on this project", "research grill", "kick off this project", "what do we need to ask the client", "iron out the methods" or "pin down the methodology", even if they never say "grill". Also use when the client's answers come back and the brief needs updating. For plans that are not research projects, a general grilling skill fits better.
 
 - **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
-- **Version:** 1.0.0
-- **Last verified:** 2026-10-13 on Claude Code
+- **Version:** 1.0.1
+- **Last verified:** 2026-11-08 on Claude Code
 - **Requirements:** None. Works with the agent alone.
 
 ## Setup skills

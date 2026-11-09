@@ -4,10 +4,10 @@ description: >-
   Interviews the person running a research project, round by round, until every decision about purpose, scope, data, evidence and methods is settled, then writes a research brief plus a list of questions to send the client. Use whenever someone is starting, scoping or kicking off a research project, has just won or been sent a proposal, RFP or project brief, or says "grill me on this project", "research grill", "kick off this project", "what do we need to ask the client", "iron out the methods" or "pin down the methodology", even if they never say "grill". Also use when the client's answers come back and the brief needs updating. For plans that are not research projects, a general grilling skill fits better.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: Richie (Thomas Manandhar-Richardson)
   author-org: Vegan Hacktivists
-  last-verified: "2026-10-13"
+  last-verified: "2026-11-08"
   verified-on: "Claude Code"
 ---
 
@@ -25,7 +25,7 @@ This adapts Matt Pocock's `grilling` skill ([github.com/mattpocock/skills](https
 
 None. Works with the agent alone.
 
-It works better when the agent can search the web and read the user's files (the proposal, call notes or transcripts, past reports), because it looks facts up instead of asking. In Claude, turn on web search and give it the files or a connector to the drive they are kept in (for example Google Drive or SharePoint). In Codex, Gemini CLI and GitHub Copilot, run it from the project's folder. Agents that can run sub-agents (Claude Code, Claude Cowork) can look facts up while the questions continue.
+It works better when the agent can search the web and read the user's files (the proposal, call notes or transcripts, past reports), because it looks facts up instead of asking. How to set that up is in `README.md`. Agents that can run sub-agents (Claude Code, Claude Cowork) can look facts up while the questions continue.
 
 ## Before the first round
 
