@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-9 skills.
+10 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -89,6 +89,15 @@ Find and quote UK legal, legislative and policy sources by the route that actual
 - **Last verified:** 2026-11-10 on Claude Code
 - **Requirements:** - Python 3 (standard library only) that you can run, with internet access to the data feeds listed in `README.md`. - Where your network settings block those feeds and the user can't change them: a real web browser you can drive on the user's computer. - With neither, you can still route the question and tell the user which address to open. `PROMPT.md` works in any AI tool.
 - **Compatibility:** Needs Python 3 with internet access to UK government and Parliament data feeds, or a real web browser the agent can drive.
+
+## [vh-ai-resources](skills/vh-ai-resources/SKILL.md)
+
+Finds resources in the Vegan Hacktivists (VH) AI Resource Library that help with what I'm working on: how-tos, prompts, case studies, guides, trainings, tool overviews and FAQs about using AI in animal protection work. Searches the free public library at resources.veganhacktivists.org, opens the best matches, and says in a sentence or two how each one helps. Use when someone says "find VH resources on X", "does Vegan Hacktivists have anything on...", "is there a VH guide or prompt for...", "what does the VH library say about...", "find me AI resources for my grant report", or asks how an animal protection group can use AI for a task where a VH resource might help. Not for general web research, or for finding resources from other organisations.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-11-08 on Claude Code
+- **Requirements:** - **Web access.** The agent must be able to open a web page, or at least search the web. Most agents can. If yours has a web search or web access setting, it needs to be on. - **Nothing else.** No account, key or connector.
 
 ## Setup skills
 

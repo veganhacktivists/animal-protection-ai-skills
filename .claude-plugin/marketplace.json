@@ -66,6 +66,13 @@
       "skills": ["./skills/meeting-wisdom-bank"]
     },
     {
+      "name": "vh-ai-resources",
+      "description": "Finds Vegan Hacktivists AI Resource Library resources that help with what you're working on, and says how each one helps",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/vh-ai-resources"]
+    },
+    {
       "name": "uk-legal-sources",
       "description": "Research UK law and policy from the original sources: Acts, Hansard debates and written questions, judgments and government guidance, with every source listed",
       "source": "./",
@@ -86,6 +93,7 @@
         "./skills/research-grilling",
         "./skills/nonprofit-ai-work-explorer",
         "./skills/meeting-wisdom-bank",
+        "./skills/vh-ai-resources",
         "./skills/uk-legal-sources"
       ]
     }
