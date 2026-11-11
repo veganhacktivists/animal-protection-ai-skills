@@ -30,4 +30,5 @@ Anything the skill needs beyond the agent (connectors, command line tools, accou
 - [ ] `INDEX.md` and `index.json` regenerated with `python3 tools/build_index.py`
 - [ ] No personal names, machine file paths, internal channel names, keys or credentials
 - [ ] No agent-specific frontmatter fields or tool names
+- [ ] Setup steps are in the skill's `README.md`, not `SKILL.md`
 - [ ] I have the right to share this under the MIT licence

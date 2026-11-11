@@ -73,6 +73,13 @@
       "skills": ["./skills/vh-ai-resources"]
     },
     {
+      "name": "uk-legal-sources",
+      "description": "Research UK law and policy from the original sources: Acts, Hansard debates and written questions, judgments and government guidance, with every source listed",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/uk-legal-sources"]
+    },
+    {
       "name": "all-skills",
       "description": "Every installable skill in the Animal Protection Skills repo in one install",
       "source": "./",
@@ -86,7 +93,8 @@
         "./skills/research-grilling",
         "./skills/nonprofit-ai-work-explorer",
         "./skills/meeting-wisdom-bank",
-        "./skills/vh-ai-resources"
+        "./skills/vh-ai-resources",
+        "./skills/uk-legal-sources"
       ]
     }
   ]
