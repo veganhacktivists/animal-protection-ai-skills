@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-8 skills.
+9 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -79,6 +79,16 @@ Interviews the person running a research project, round by round, until every de
 - **Version:** 1.0.1
 - **Last verified:** 2026-11-08 on Claude Code
 - **Requirements:** None. Works with the agent alone.
+
+## [uk-legal-sources](skills/uk-legal-sources/SKILL.md)
+
+Find and quote UK legal, legislative and policy sources by the route that actually works. Use whenever a task involves UK law, Acts, statutory instruments, Hansard, parliamentary debates, written questions, bills, select committees, Commons Library briefings, court judgments, case law, tribunals, sentencing, the devolved parliaments, EU law, FOI requests, or government guidance and consultations, or names a source like legislation.gov.uk, Hansard, Find Case Law, BAILII, TheyWorkForYou, GOV.UK, EUR-Lex or a council licensing register. Also use when someone asks "what does the law say", "is this section in force", "has a minister said", "who did the minister meet about X", "is there a case on", "can AI search X", or wants the full text or PDF of an Act. Routes each question to open data feeds first, page fetches second, and a real browser only where a site blocks scripts, with tested scripts for legislation.gov.uk, Hansard, written questions, ministers' meetings and Find Case Law.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-11-10 on Claude Code
+- **Requirements:** - Python 3 (standard library only) that you can run, with internet access to the data feeds listed in `README.md`. - Where your network settings block those feeds and the user can't change them: a real web browser you can drive on the user's computer. - With neither, you can still route the question and tell the user which address to open. `PROMPT.md` works in any AI tool.
+- **Compatibility:** Needs Python 3 with internet access to UK government and Parliament data feeds, or a real web browser the agent can drive.
 
 ## Setup skills
 
