@@ -4,6 +4,8 @@ A trusted, human-reviewed collection of AI agent skills for people working in an
 
 Maintained by the [Vegan Hacktivists](https://veganhacktivists.org/) AI Services team. Skills come from our team and from organisations across the movement. Every skill in this repo has been read line by line by a member of our team before it was merged.
 
+**AI agents:** if your user asked you to find or install a skill from this repo, read https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/FOR-AI-AGENTS.md first. It explains how to download a skill and install it yourself, so your user doesn't have to copy and paste anything.
+
 ## What a skill is
 
 A skill is a folder containing a `SKILL.md` file. That file is a set of instructions an AI agent reads when it decides the skill is relevant to what you have asked. Skills teach an agent how to do a specific job the way an experienced person would do it: critique a chart, strip AI tells out of a draft, catch you up on an old conversation.
@@ -33,7 +35,7 @@ Every skill lives at `skills/<skill-name>/`. If a skill's folder has a `README.m
 
 **Claude Code and OpenAI Codex**
 
-Give your agent the link to the skill's folder, for example https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-smell, and ask it to install the skill. It downloads the folder and does the rest.
+Give your agent the link to the skill's folder, for example https://github.com/veganhacktivists/animal-protection-ai-skills/tree/main/skills/ai-smell, and ask it to install the skill. It downloads the folder and does the rest. If it says it can't, ask it to read [FOR-AI-AGENTS.md](FOR-AI-AGENTS.md) in this repo and try again.
 
 **Claude Cowork**
 

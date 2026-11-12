@@ -29,6 +29,6 @@ A good result starts with a short list of what the proposal already settles and 
 
 1. Read `SKILL.md` and every other file in this folder. Tell the user in two or three sentences what the skill will do.
 2. Check "What you need first" against what you can see. Ask the user before connecting an account or installing a tool.
-3. Install the whole folder, not only `SKILL.md`, in your skills location. If the user asked for changes, install the changed copy and tell them what you changed.
+3. Install the whole folder, not only `SKILL.md`, in your skills location. If you aren't sure how to download the folder or where your skills location is, follow https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/FOR-AI-AGENTS.md. If the user asked for changes, install the changed copy and tell them what you changed.
 4. Do not change anything outside your skills location without asking.
 5. Offer to run the request under "Checking it works".

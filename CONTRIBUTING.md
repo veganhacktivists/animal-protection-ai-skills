@@ -97,7 +97,7 @@ Everything about setting the skill up goes in a `README.md` next to `SKILL.md`. 
 2. **What you need first.** What the skill needs, and how to get it on each agent, for example "In Claude Cowork, connect Google Drive."
 3. **Installing it.** Copy the block below and put in your skill's name.
 4. **Checking it works.** One request to try, and what a good result looks like.
-5. **For AI agents installing this skill.** Numbered steps for the person's agent: read the skill, check what it needs, install the whole folder, and offer to run the request under "Checking it works".
+5. **For AI agents installing this skill.** Numbered steps for the person's agent: read the skill, check what it needs, install the whole folder, and offer to run the request under "Checking it works". In the install step, link to https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/FOR-AI-AGENTS.md for how to download the folder and where skills go. Don't repeat those steps in your README.
 6. **For AI agents setting up ...** Only if the skill needs settings from its user, or has an optional extra such as a scheduled run. Say what the agent should find out for itself, what to ask, where the answers go and how to test it.
 
 The install block:

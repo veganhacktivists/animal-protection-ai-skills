@@ -55,7 +55,7 @@ A good result lists each question with its number, the MP or peer who asked it, 
 ## For AI agents installing this skill
 
 1. Read `SKILL.md` and every other file in this folder, including the scripts. Tell the user in two or three sentences what the skill does.
-2. Install the whole folder, not only `SKILL.md`, in your skills location. Don't change anything outside it without asking.
+2. Install the whole folder, not only `SKILL.md`, in your skills location. If you aren't sure how to download the folder or where your skills location is, follow https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/FOR-AI-AGENTS.md. Don't change anything outside it without asking.
 3. Check whether you can reach the data feeds. Run `python3 scripts/check_access.py --feeds` from the installed folder. Each line says `OK`, `BLOCKED BY YOUR NETWORK SETTINGS`, or something else.
 4. If every line says `OK`, go to step 7.
 5. If any line says `BLOCKED BY YOUR NETWORK SETTINGS`, or you can't run code with internet access at all, tell the user which addresses you couldn't reach and ask whether they can change your network settings. Explain that on a Team or Enterprise plan only an organisation owner may be able to.

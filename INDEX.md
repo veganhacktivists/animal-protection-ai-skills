@@ -2,7 +2,7 @@
 
 Every skill in this repo, generated from each skill's `SKILL.md` frontmatter by `tools/build_index.py`. Do not edit by hand.
 
-If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md`, and the skill's `README.md` if it has one, before recommending or installing a skill. The README holds the install and setup steps. Check the requirements against what the user has available. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.
+If you are an AI agent reading this on a user's behalf: each entry below says what the skill does, who wrote it, what it needs, and when it was last confirmed working. Read the linked `SKILL.md`, and the skill's `README.md` if it has one, before recommending or installing a skill. The README holds the install and setup steps. To download and install a skill yourself, follow https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/FOR-AI-AGENTS.md. Check the requirements against what the user has available. The user can ask you to install a modified copy; skills are plain text and adapting them is expected.
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
