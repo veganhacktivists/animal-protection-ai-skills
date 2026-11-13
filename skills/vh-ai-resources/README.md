@@ -52,7 +52,7 @@ Before the first email goes out, your agent shows you what it would send. The em
 
 1. Read `SKILL.md` and this file. Tell the user in two or three sentences what the skill does.
 2. Check that you can reach the library. Try opening https://resources.veganhacktivists.org/llms.txt. If you can't, try a web search for `site:resources.veganhacktivists.org`. If neither works, tell the user the skill needs web access, and how to turn it on in their tool if you know.
-3. Install the whole folder in your skills location. Don't change anything outside it without asking.
+3. Install the whole folder in your skills location. Don't change anything outside it without asking. If you aren't sure how to download the folder or where your skills location is, follow https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/FOR-AI-AGENTS.md.
 4. Searching the library needs no setup.
 5. Ask the user, in one or two lines, whether they would like the optional weekly email, and say that it works by reading their past chats. If they say yes, follow the next section. Don't create a scheduled task or send anything until its checks are done.
 6. Offer to run the request under "Checking it works".

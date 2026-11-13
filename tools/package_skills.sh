@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
-# Zip every skill folder into dist/<name>-<version>.zip for upload to Claude, Cowork or Microsoft 365 Copilot.
+# Zip every skill folder into dist/<name>.zip for upload to Claude Cowork or Microsoft 365 Copilot.
+# The zip name has no version number, so this link always gets the newest release of a skill:
+# https://github.com/veganhacktivists/animal-protection-ai-skills/releases/latest/download/<name>.zip
+# The version is in each skill's SKILL.md.
 # Usage: tools/package_skills.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."
 rm -rf dist && mkdir -p dist
 for dir in skills/*/; do
   name="$(basename "$dir")"
-  version="$(sed -n 's/^  version: *"\{0,1\}\([0-9.]*\)"\{0,1\}/\1/p' "$dir/SKILL.md" | head -1)"
-  (cd skills && zip -qr "../dist/${name}-${version:-0.0.0}.zip" "$name" -x '*.DS_Store')
-  echo "dist/${name}-${version:-0.0.0}.zip"
+  (cd skills && zip -qr "../dist/${name}.zip" "$name" -x '*.DS_Store')
+  echo "dist/${name}.zip"
 done
