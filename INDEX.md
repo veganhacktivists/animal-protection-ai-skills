@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-10 skills.
+11 skills.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -79,6 +79,15 @@ Interviews the person running a research project, round by round, until every de
 - **Version:** 1.0.1
 - **Last verified:** 2026-11-08 on Claude Code
 - **Requirements:** None. Works with the agent alone.
+
+## [share-automation](skills/share-automation/SKILL.md)
+
+Packages one of the user's automations (a scheduled task, routine or recurring prompt in Claude Cowork, Claude Code, OpenAI Codex, ChatGPT or another AI tool, or one they paste in) into a single setup prompt that someone else pastes into their own AI. That AI checks what it can do, asks which tool they use for each job (which CRM, task manager, email, notes app and so on), suggests another connector or a workaround where it can't reach one, and sets up their own version on a schedule after a trial run that changes nothing. Use whenever someone says "share this automation", "package up my X automation", "make a setup prompt for X", "send my X automation to a colleague / friend / partner organisation", "turn this scheduled task into something someone else can use", "how would someone else set up my X", or names one of their automations and wants another person or organisation to have it. Not for writing a blog post about an automation, and not for building a new automation for the user themselves.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-11-15 on Claude Code
+- **Requirements:** None. Works with the agent alone: the user can paste the automation in. It works best in an agent that can also list the user's scheduled tasks or automations and their past runs, read files on the computer, save a file, and hand work to a helper agent (a subagent).
 
 ## [uk-legal-sources](skills/uk-legal-sources/SKILL.md)
 
