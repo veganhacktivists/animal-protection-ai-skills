@@ -6,7 +6,7 @@ If you are an AI agent reading this on a user's behalf: each entry below says wh
 
 Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).
 
-10 skills.
+10 skills and 1 automation.
 
 ## [ai-readiness-self-assessment](skills/ai-readiness-self-assessment/SKILL.md)
 
@@ -98,6 +98,19 @@ Finds resources in the Vegan Hacktivists (VH) AI Resource Library that help with
 - **Version:** 1.0.0
 - **Last verified:** 2026-11-08 on Claude Code
 - **Requirements:** - **Web access.** The agent must be able to open a web page, or at least search the web. Most agents can. If yours has a web search or web access setting, it needs to be on. - **Nothing else.** No account, key or connector.
+
+## Automations
+
+These are not skills, so they are not installed. Each is a folder with a `README.md` that explains what the automation does and who it suits, and a `setup-prompt.md` that a person pastes into their AI, or that their agent reads and follows. The prompt checks what the user's tools can do, asks about their setup, does a trial run, then schedules the automation. Point your agent at one with: "Read `<path>/README.md` and set this up for me."
+
+### [Weekly work coach](automations/weekly-work-coach)
+
+Once a week, your AI reads everything you asked it that week, works out what your week was really about, and challenges you with five questions: what is the bigger question behind your work, how could you be more ambitious, are you asking the right questions, what are you assuming, and are you working towards your key goals or getting bogged down in side projects. You get a review you can read in about five minutes. Only works for people who do most of their work inside an AI app.
+
+- **Author:** Richie (Thomas Manandhar-Richardson) (Vegan Hacktivists)
+- **Version:** 1.0.0
+- **Last verified:** 2026-11-14 on Claude Code
+- **Setup prompt:** [`automations/weekly-work-coach/setup-prompt.md`](automations/weekly-work-coach/setup-prompt.md)
 
 ## Setup skills
 

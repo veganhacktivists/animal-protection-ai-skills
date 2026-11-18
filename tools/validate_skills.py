@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check every skills/<name>/SKILL.md and setup-skills/*.md against this repo's rules.
+"""Check every skills/<name>/SKILL.md, setup-skills/*.md and automations/<name>/ against this repo's rules.
 
 Usage: python3 tools/validate_skills.py
 Exit code 0 means everything passed.
@@ -13,8 +13,10 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = ROOT / "skills"
 SETUP_SKILLS_DIR = ROOT / "setup-skills"
+AUTOMATIONS_DIR = ROOT / "automations"
 SKILL_SPEC_FIELDS = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 SETUP_SKILL_FIELDS = {"title", "description", "license", "metadata"}
+AUTOMATION_FIELDS = {"title", "description", "license", "metadata"}
 REQUIRED_METADATA = {"version", "author", "author-org", "last-verified", "verified-on"}
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -139,9 +141,51 @@ def check_setup_skill(path: Path) -> list[str]:
     return [f"{path.name}: {p}" for p in problems]
 
 
+def check_automation(folder: Path) -> list[str]:
+    """An automation is a folder with README.md (frontmatter + human guide) and setup-prompt.md."""
+    if not NAME_RE.match(folder.name) or len(folder.name) > 64:
+        return [f"{folder.name}: folder name must be 1-64 chars, lowercase letters/numbers/single hyphens"]
+    readme, prompt = folder / "README.md", folder / "setup-prompt.md"
+    problems = []
+    if not readme.exists():
+        problems.append("missing README.md (the guide for the person setting it up)")
+    if not prompt.exists():
+        problems.append("missing setup-prompt.md (the prompt people paste into their AI)")
+    if problems:
+        return [f"{folder.name}: {p}" for p in problems]
+    try:
+        front, body = parse_frontmatter(readme)
+    except ValueError as exc:
+        return [f"{folder.name}: README.md: {exc}"]
+
+    prompt_text = prompt.read_text(encoding="utf-8")
+    problems = check_metadata_and_body_hygiene(front, body + "\n" + prompt_text, AUTOMATION_FIELDS)
+
+    title = front.get("title")
+    if not isinstance(title, str) or not title.strip():
+        problems.append("README.md title is missing or empty")
+    desc = front.get("description")
+    if not isinstance(desc, str) or not desc.strip():
+        problems.append("README.md description is missing or empty")
+    elif len(desc) > 1024:
+        problems.append(f"README.md description is {len(desc)} chars, max 1024")
+    if not prompt_text.strip():
+        problems.append("setup-prompt.md is empty")
+    if prompt_text.startswith("---\n"):
+        problems.append("setup-prompt.md must not have frontmatter: people paste the whole file, so metadata goes in README.md")
+    if "## For AI agents setting up" not in body:
+        problems.append("README.md has no '## For AI agents setting up ...' section")
+
+    return [f"{folder.name}: {p}" for p in problems]
+
+
 def main():
     skill_folders = sorted(p for p in SKILLS_DIR.iterdir() if p.is_dir() and not p.name.startswith("."))
     setup_files = sorted(SETUP_SKILLS_DIR.glob("*.md")) if SETUP_SKILLS_DIR.exists() else []
+    automation_folders = (
+        sorted(p for p in AUTOMATIONS_DIR.iterdir() if p.is_dir() and not p.name.startswith("."))
+        if AUTOMATIONS_DIR.exists() else []
+    )
 
     if not skill_folders and not setup_files:
         print("no skills found under skills/ or setup-skills/")
@@ -156,10 +200,17 @@ def main():
         problems = check_setup_skill(path)
         print(f"[{'FAIL' if problems else 'ok'}] setup-skills/{path.name}")
         all_problems.extend(problems)
+    for folder in automation_folders:
+        problems = check_automation(folder)
+        print(f"[{'FAIL' if problems else 'ok'}] automations/{folder.name}")
+        all_problems.extend(problems)
 
     for problem in all_problems:
         print("  -", problem)
-    print(f"\n{len(skill_folders)} skills and {len(setup_files)} setup skills checked, {len(all_problems)} problems")
+    print(
+        f"\n{len(skill_folders)} skills, {len(setup_files)} setup skills and "
+        f"{len(automation_folders)} automations checked, {len(all_problems)} problems"
+    )
     return 1 if all_problems else 0
 
 

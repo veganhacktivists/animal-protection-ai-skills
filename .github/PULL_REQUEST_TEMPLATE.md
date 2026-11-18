@@ -1,7 +1,8 @@
-## Skill
+## Skill or automation
 
 Name: 
-New skill or update to an existing one: 
+Skill or automation: 
+New, or an update to an existing one: 
 
 ## What it does
 
@@ -22,7 +23,7 @@ Which agent(s) you ran it on, and the date.
 
 ## Requirements
 
-Anything the skill needs beyond the agent (connectors, command line tools, accounts). Say "none" if none.
+Anything the skill or automation needs beyond the agent (connectors, command line tools, accounts). Say "none" if none.
 
 ## Author checks
 
@@ -30,5 +31,5 @@ Anything the skill needs beyond the agent (connectors, command line tools, accou
 - [ ] `INDEX.md` and `index.json` regenerated with `python3 tools/build_index.py`
 - [ ] No personal names, machine file paths, internal channel names, keys or credentials
 - [ ] No agent-specific frontmatter fields or tool names
-- [ ] Setup steps are in the skill's `README.md`, not `SKILL.md`
+- [ ] Setup steps are in the skill's `README.md`, not `SKILL.md` (automations: `setup-prompt.md` has no frontmatter)
 - [ ] I have the right to share this under the MIT licence

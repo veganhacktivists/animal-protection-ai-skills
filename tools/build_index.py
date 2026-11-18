@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate INDEX.md and index.json from skills/*/SKILL.md and setup-skills/*.md frontmatter.
+"""Regenerate INDEX.md and index.json from skills/*/SKILL.md, setup-skills/*.md and automations/*/README.md frontmatter.
 
 Usage: python3 tools/build_index.py          rewrite both files
        python3 tools/build_index.py --check  exit 1 if the committed files are out of date
@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from validate_skills import SKILLS_DIR, SETUP_SKILLS_DIR, ROOT, parse_frontmatter  # noqa: E402
+from validate_skills import SKILLS_DIR, SETUP_SKILLS_DIR, AUTOMATIONS_DIR, ROOT, parse_frontmatter  # noqa: E402
 
 REPO_URL = "https://github.com/veganhacktivists/animal-protection-ai-skills"
 
@@ -73,7 +73,30 @@ def collect_setup_skills():
     return entries
 
 
-def render_md(skills, setup_skills):
+def collect_automations():
+    entries = []
+    if not AUTOMATIONS_DIR.exists():
+        return entries
+    for folder in sorted(p for p in AUTOMATIONS_DIR.iterdir() if p.is_dir() and not p.name.startswith(".")):
+        front, _ = parse_frontmatter(folder / "README.md")
+        meta = front.get("metadata", {}) or {}
+        entries.append({
+            "name": folder.name,
+            "title": front.get("title", folder.name),
+            "description": front.get("description", "").strip(),
+            "version": meta.get("version", ""),
+            "author": meta.get("author", ""),
+            "author_org": meta.get("author-org", ""),
+            "last_verified": meta.get("last-verified", ""),
+            "verified_on": meta.get("verified-on", ""),
+            "path": f"automations/{folder.name}",
+            "url": f"{REPO_URL}/tree/main/automations/{folder.name}",
+            "setup_prompt_url": f"{REPO_URL.replace('github.com', 'raw.githubusercontent.com')}/main/automations/{folder.name}/setup-prompt.md",
+        })
+    return entries
+
+
+def render_md(skills, setup_skills, automations):
     out = [
         "# Skills index",
         "",
@@ -83,7 +106,8 @@ def render_md(skills, setup_skills):
         "",
         "Machine-readable version: [`index.json`](index.json). Install instructions: [README](README.md#installing-a-skill).",
         "",
-        f"{len(skills)} skills.",
+        f"{len(skills)} skills"
+        + (f" and {len(automations)} automation{'' if len(automations) == 1 else 's'}." if automations else "."),
         "",
     ]
     for e in skills:
@@ -100,6 +124,26 @@ def render_md(skills, setup_skills):
         if e["compatibility"]:
             out.append(f"- **Compatibility:** {e['compatibility']}")
         out.append("")
+
+    if automations:
+        out += [
+            "## Automations",
+            "",
+            "These are not skills, so they are not installed. Each is a folder with a `README.md` that explains what the automation does and who it suits, and a `setup-prompt.md` that a person pastes into their AI, or that their agent reads and follows. The prompt checks what the user's tools can do, asks about their setup, does a trial run, then schedules the automation. Point your agent at one with: \"Read `<path>/README.md` and set this up for me.\"",
+            "",
+        ]
+        for e in automations:
+            out += [
+                f"### [{e['title']}]({e['path']})",
+                "",
+                e["description"],
+                "",
+                f"- **Author:** {e['author']} ({e['author_org']})",
+                f"- **Version:** {e['version']}",
+                f"- **Last verified:** {e['last_verified']} on {e['verified_on']}",
+                f"- **Setup prompt:** [`{e['path']}/setup-prompt.md`]({e['path']}/setup-prompt.md)",
+                "",
+            ]
 
     if setup_skills:
         out += [
@@ -125,9 +169,10 @@ def render_md(skills, setup_skills):
 def main():
     skills = collect_skills()
     setup_skills = collect_setup_skills()
-    md = render_md(skills, setup_skills)
+    automations = collect_automations()
+    md = render_md(skills, setup_skills, automations)
     js = json.dumps(
-        {"repo": REPO_URL, "skills": skills, "setup_skills": setup_skills},
+        {"repo": REPO_URL, "skills": skills, "setup_skills": setup_skills, "automations": automations},
         indent=2,
         ensure_ascii=False,
     ) + "\n"
@@ -145,7 +190,10 @@ def main():
         return 0
     md_path.write_text(md, encoding="utf-8")
     js_path.write_text(js, encoding="utf-8")
-    print(f"wrote INDEX.md and index.json ({len(skills)} skills, {len(setup_skills)} setup skills)")
+    print(
+        f"wrote INDEX.md and index.json ({len(skills)} skills, {len(setup_skills)} setup skills, "
+        f"{len(automations)} automations)"
+    )
     return 0
 
 

@@ -1,10 +1,10 @@
-# Contributing a skill
+# Contributing a skill or automation
 
-Thank you. This page covers what a submission needs to contain and how we review it. If you would rather email your skill than open a pull request, send it to hello@veganhacktivists.org with "Skill submission" in the subject and we will handle the rest.
+Thank you. This page covers what a submission needs to contain and how we review it. If you would rather email your skill or automation than open a pull request, send it to hello@veganhacktivists.org with "Skill submission" in the subject and we will handle the rest.
 
 ## What we accept
 
-- Skills only. Not connectors, apps, datasets or general documents. Those belong in the [AI Resource Library](https://github.com/veganhacktivists/ai-resource-library).
+- Skills and automations only. Not connectors, apps, datasets or general documents. Those belong in the [AI Resource Library](https://github.com/veganhacktivists/ai-resource-library). See "Automations" below for what counts as one.
 - Skills that are useful to people doing animal protection work. General-purpose skills are fine if that audience would use them regularly.
 - Skills that work on at least one of: Claude Code, Claude Cowork, OpenAI Codex, ChatGPT Work, Gemini CLI, GitHub Copilot, Microsoft 365 Copilot.
 - Skills you have the right to share under the MIT licence.
@@ -38,6 +38,64 @@ setup-skills/
 - It never gets installed or zipped, and does not appear in `.claude-plugin/marketplace.json`. It is read on request, not auto-triggered.
 
 The same review checklist below applies, and `tools/validate_skills.py` checks these too.
+
+## Automations
+
+An automation is a job someone's AI does on a schedule, such as a weekly review of their work or a daily summary of their inbox. It isn't shared as a skill to install, because each person has to wire it to their own tools. It is shared as a setup prompt: a prompt the person pastes into their AI tool, which then sets the automation up with them.
+
+```
+automations/
+  your-automation-name/
+    README.md           required: frontmatter and the guide for the person
+    setup-prompt.md     required: the prompt they paste into their AI
+```
+
+The folder name uses lowercase letters, numbers and single hyphens.
+
+### README.md
+
+Start it with this frontmatter. The fields follow the same rules as a skill's (see "SKILL.md frontmatter" below), except that it has a `title` in place of `name`.
+
+```yaml
+---
+title: Your automation's name
+description: What it does, what the person gets and how often, and who it suits. Max 1024 characters.
+license: MIT
+metadata:
+  version: "1.0.0"
+  author: Your Name
+  author-org: Your Organisation
+  last-verified: "2026-09-07"
+  verified-on: "Claude Code"
+---
+```
+
+Then write it for the person setting it up:
+
+1. What it does, in two or three sentences.
+2. **Who it's for.** Say plainly who it won't work for.
+3. **What it does each run**, in a short numbered list.
+4. **What you need first.** The kind of AI tool it needs, such as one that can run on a schedule, and any connectors.
+5. **Setting it up.** Copy `setup-prompt.md` into a new chat, or give your agent the link to the folder.
+6. **Checking it works.** What they should have at the end of setup, and what to do if the first real run doesn't arrive.
+7. **Privacy**, if it reads anything sensitive. Say what it reads, who sees the results, and what it never does.
+8. **For AI agents setting up this automation.** Numbered steps for the person's agent: download `setup-prompt.md` exactly, read it in full, then follow it with the person. The validator checks this section is there.
+
+See [`automations/weekly-work-coach/README.md`](automations/weekly-work-coach/README.md) for an example.
+
+### setup-prompt.md
+
+The person pastes the whole file into their AI, so it has no frontmatter. Write it in the first person, as the person talking to their own AI. A good setup prompt:
+
+- Says in its first paragraph what the automation does and how often.
+- Asks the AI to say first what it can do in that app: run on a schedule, read what the automation needs, run code, send a message. If it can't do something, the AI says so and suggests the closest thing that works.
+- Lists each job the automation needs done, what you used for it, and what other people commonly use, so the AI asks which tool the person uses rather than assuming yours.
+- Says what to do when a tool can't be reached: the official connector first, then another connector, then a workaround that says what it loses.
+- Spells out exactly what each run does, and the rules, with the reason for each rule.
+- Keeps the run as safe as the job allows. Scheduled runs only read, apart from delivering the result to the person. The result only goes to the person, unless sending it to others is the point of the automation.
+- Ends with a trial run on the person's real data before anything is scheduled, then tells them when it next runs, what it needs to keep working, and how to pause or delete it.
+
+The same portability rules as skills apply: no tool names from one agent, no machine file paths, no keys. Naming the tools you used as examples is fine.
 
 ## SKILL.md frontmatter
 
@@ -154,6 +212,12 @@ Quality:
 - [ ] Nothing is specific to the author's own machine, organisation or colleagues.
 - [ ] Plain language. No jargon a working advocate would have to look up.
 - [ ] Setup steps are in `README.md`, not `SKILL.md`. The install steps follow the block in "README.md: the setup guide".
+
+Automations, as well as the checks above:
+
+- [ ] Read `setup-prompt.md` as the person's AI would. It asks before setting anything up and does a trial run before it schedules anything.
+- [ ] Scheduled runs only read, apart from delivering the result, and the result only goes to the person unless sharing it is the point.
+- [ ] It works for people whose tools differ from the author's. It asks which tool they use for each job.
 
 Housekeeping:
 
