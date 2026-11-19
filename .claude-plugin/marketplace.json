@@ -80,6 +80,13 @@
       "skills": ["./skills/uk-legal-sources"]
     },
     {
+      "name": "share-automation",
+      "description": "Turns one of your automations into a setup prompt someone else pastes into their own AI, which asks about their tools and sets up their own version",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/share-automation"]
+    },
+    {
       "name": "all-skills",
       "description": "Every installable skill in the Animal Protection Skills repo in one install",
       "source": "./",
@@ -94,7 +101,8 @@
         "./skills/nonprofit-ai-work-explorer",
         "./skills/meeting-wisdom-bank",
         "./skills/vh-ai-resources",
-        "./skills/uk-legal-sources"
+        "./skills/uk-legal-sources",
+        "./skills/share-automation"
       ]
     }
   ]
