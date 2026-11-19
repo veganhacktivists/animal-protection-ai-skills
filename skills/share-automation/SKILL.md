@@ -170,7 +170,7 @@ If your app can send or attach files to the user, send the file too. Always past
 
 If it should be shared more widely than one person, there are two other homes for it:
 
-- **For the movement:** submit it as a setup skill to the public [animal-protection-ai-skills](https://github.com/veganhacktivists/animal-protection-ai-skills) library, as one flat file at `setup-skills/skill-setup-<name>.md`. Follow the "Setup skills" section of that library's `CONTRIBUTING.md`, which adds frontmatter and a line telling the reading agent to build a version for its own user.
+- **For the movement:** submit it as an automation to the public [animal-protection-ai-skills](https://github.com/veganhacktivists/animal-protection-ai-skills) library, as a folder at `automations/<name>/` holding the prompt as `setup-prompt.md` and a `README.md` guide for the person setting it up. Follow the "Automations" section of that library's `CONTRIBUTING.md`. It asks for frontmatter in the README, and for scheduled runs that only read, apart from delivering the result, so an automation that writes or sends things may need changing first.
 - **For the user's own team:** if their organisation keeps a shared library of skills or prompts, it can go there, following that library's rules.
 
 Then report, using the user's own report format if they have one. Number every item in one unbroken sequence, so they can reply "change 3 and 7". Cover:

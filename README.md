@@ -1,10 +1,10 @@
 # Animal Protection Skills
 
-A trusted, human-reviewed collection of AI agent skills for people working in animal protection.
+A trusted, human-reviewed collection of AI agent skills and automations for people working in animal protection.
 
-Maintained by the [Vegan Hacktivists](https://veganhacktivists.org/) AI Services team. Skills come from our team and from organisations across the movement. Every skill in this repo has been read line by line by a member of our team before it was merged.
+Maintained by the [Vegan Hacktivists](https://veganhacktivists.org/) AI Services team. Skills and automations come from our team and from organisations across the movement. Every one in this repo has been read line by line by a member of our team before it was merged.
 
-**AI agents:** if your user asked you to find or install a skill from this repo, read https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/FOR-AI-AGENTS.md first. It explains how to download a skill and install it yourself, so your user doesn't have to copy and paste anything.
+**AI agents:** if your user asked you to find or install a skill, or set up an automation, from this repo, read https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/FOR-AI-AGENTS.md first. It explains how to download a skill and install it yourself, and how to set up an automation, so your user doesn't have to copy and paste anything.
 
 ## What a skill is
 
@@ -13,6 +13,17 @@ A skill is a folder containing a `SKILL.md` file. That file is a set of instruct
 The format is the open [Agent Skills standard](https://agentskills.io/), so the same folder works in Claude Code, Claude Cowork, OpenAI Codex, Gemini CLI, GitHub Copilot and Microsoft 365 Copilot. ChatGPT Work can use it too, through its own skill-creation flow. See [Installing a skill](#installing-a-skill) for the details per agent.
 
 A few entries under [`setup-skills/`](setup-skills/) are a different shape: not something you install, but a single file written for your agent to read and act on directly. It interviews you and builds a personal version wired to your own accounts, because the value only comes from being wired to your specific channels and tools. Point your agent at one with: "Read `setup-skills/<file>` and set this up for me." The [skills index](INDEX.md) lists these separately from the installable skills.
+
+## What an automation is
+
+An automation is a job your AI does for you on a schedule, without you starting it each time. For example, the [weekly work coach](automations/weekly-work-coach/) reads what you asked your AI each week and sends you a review that challenges how you are thinking.
+
+Automations live at `automations/<automation-name>/`. You don't install them like a skill, because each one has to be wired to your own tools: your calendar, your notes, where the results should go. Instead, each folder has two files:
+
+- `README.md` says what the automation does, who it suits and what it needs. GitHub shows it on the folder page.
+- `setup-prompt.md` is a prompt you paste into your AI tool. It checks what your tool can do, asks which tools you use for each part of the job, does a trial run, and only then sets up the schedule.
+
+To set one up, copy `setup-prompt.md` into a new chat in the AI tool you do most of your work in, and answer its questions. Or give your agent the link to the automation's folder and ask it to set it up for you. The [skills index](INDEX.md#automations) lists every automation.
 
 ## How to use this repo
 
@@ -24,6 +35,7 @@ Paste the repo link into your agent and try things like:
 - "Read the `graph-advisor` skill and tell me whether it would help me. What does it need set up first?"
 - "Install the `ai-smell` skill from this repo for me."
 - "Install `catch-up`, but change it so the summary is aimed at my manager rather than at me."
+- "Set up the weekly work coach automation from this repo for me."
 
 That last one is the point. A skill is plain text. Your agent can read it, discuss it with you, adapt it to your organisation and install the adapted copy. You are not stuck with our version.
 
@@ -73,9 +85,9 @@ npx skills add veganhacktivists/animal-protection-ai-skills
 
 Paste the contents of the skill's `SKILL.md` at the start of a chat. This works less well, because the AI only has the instructions in that one chat.
 
-## Submitting a skill
+## Submitting a skill or automation
 
-We want skills from across the movement, and the author is credited in the skill itself and in the index.
+We want skills and automations from across the movement, and the author is credited in the skill or automation itself and in the index.
 
 Two ways to submit:
 

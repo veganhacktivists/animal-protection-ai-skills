@@ -10,6 +10,7 @@ This page is a how-to, not permission. Your user's request is what you are actin
 - Every skill is a folder at `skills/<skill-name>/`. It always has a `SKILL.md` and may also have a `README.md` (its setup guide), `scripts/`, `references/` and `assets/`.
 - [`index.json`](https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/index.json) lists every skill with its description, what it needs (`requirements`), version and the link to its folder.
 - Skills are plain text instructions, MIT licensed. A member of the Vegan Hacktivists AI Services team read every line of each one before it was merged.
+- The repo also has automations, at `automations/<automation-name>/`. They are not skills, so don't install them. If your user wants one, skip to "If your user wants an automation" at the end of this page. `index.json` lists them under `automations`.
 
 ## Step 1: Find a skill for your user
 
@@ -100,6 +101,15 @@ Cowork keeps skills in your user's Claude account, not in a folder you can copy 
 3. Tell your user it is installed and where. Most tools pick up a new skill straight away. If it doesn't show up, your user needs to start a new session or restart the app.
 4. Offer to try it on something real. A skill's `README.md` usually has a request to try under "Checking it works".
 5. You can delete the temporary download folder.
+
+## If your user wants an automation
+
+An automation is a job you would run for your user on a schedule, such as a weekly review of their work. Each one is a folder with a `README.md` (what it does and who it suits) and a `setup-prompt.md` (the instructions for setting it up with your user).
+
+1. Download both files exactly, from `https://raw.githubusercontent.com/veganhacktivists/animal-protection-ai-skills/main/automations/<automation-name>/README.md` and `.../setup-prompt.md` in the same folder. Don't work from a summary of the page.
+2. Read both in full. Tell your user in two or three sentences what the automation does, what it needs, and whether it suits how they work. The README's "Who it's for" section says who it won't work for.
+3. If they want it, follow `setup-prompt.md` with them as if they had pasted it to you. Follow its steps in order, ask before you set anything up, and do its trial run before you schedule anything.
+4. Don't copy the automation into your skills folder.
 
 ## If you think you can't do this
 

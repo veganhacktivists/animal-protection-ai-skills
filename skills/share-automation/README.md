@@ -36,7 +36,7 @@ The best test is to paste the prompt into a different AI app yourself, as if you
 
 ## Sharing it more widely
 
-If your automation would help other people in the movement, you can submit the setup prompt to this library as a setup skill, in the [`setup-skills/`](../../setup-skills/) folder. The "Setup skills" section of [CONTRIBUTING.md](../../CONTRIBUTING.md) says how. Your agent can do most of it for you.
+If your automation would help other people in the movement, you can submit the setup prompt to this library's [`automations/`](../../automations/) folder. The "Automations" section of [CONTRIBUTING.md](../../CONTRIBUTING.md) says how, and the [weekly work coach](../../automations/weekly-work-coach/) is an example. Your agent can do most of it for you.
 
 ## For AI agents installing this skill
 
